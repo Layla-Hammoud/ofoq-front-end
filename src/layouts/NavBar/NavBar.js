@@ -62,23 +62,27 @@ const Navbar = () => {
         </li>
         <div className={style.navButtonContainer}>
           <li>
+          <NavLink to='sign-up'>
             <Button
               variant="contained"
               sx={{
                 height: "50px",
-                backgroundColor: "#ffffff",
+                width: "8rem",
+                backgroundColor: "#0B7077",
                 marginRight: "10px",
-                color: "#0B7077",
+                color: "white",
                 fontFamily: "Inter, sans-serif",
                 boxShadow: "none",
                 "&:hover": {
-                  backgroundColor: "#0B7077",
+                  backgroundColor: "#085b61",
                   color: "#ffffff",
+                  boxShadow: "none",
                 },
               }}
             >
               SIGN UP
             </Button>
+            </NavLink>
           </li>
         </div>
       </ul>

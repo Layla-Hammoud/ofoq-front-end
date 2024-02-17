@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUserData = async () => {
     try {
       setCheckUser(true);
-      const response = await axiosInstance.get("/api/users/user");
+      const response = await axiosInstance.get("/user/get-user");
       setUser(response.data.data);
     } catch (err) {
       console.error("Error fetching user data:", err);

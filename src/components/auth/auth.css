@@ -1,0 +1,13 @@
+a{
+    color: #0B7077 ;
+    text-decoration: none;
+}
+a:hover{
+   color: #085b61; 
+}
+.logo{
+    width: 55px;
+    height: 68px;
+    margin-left: 10%;
+    margin-top: 1.5%;
+}
