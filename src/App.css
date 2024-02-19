@@ -2,9 +2,18 @@
   --primary-color: #0B7077;  
   --secondary-color: #D2E6E4;
   --third-color: #FD661F;
-  --font-size-base: 16px;  
+  --font-size-base: 18px;  
   --line-height-base: 1.5;
+  --small-font-size: 13px; 
+  --gray-color: #696984; 
 }
 .App{
   font-family: 'Inter', sans-serif;
+}
+body {
+  font-size: var(--base-font-size);
+}
+
+h1 {
+  font-size: calc(var(--base-font-size) * 2);
 }

@@ -1,0 +1,28 @@
+.PathSection{
+    width: 90%;
+    margin: 0 auto;
+}
+.PathTitle {
+    margin: 1em auto;
+    font-size: 2em;
+    color: var(--third-color);
+    text-align: center;
+    position: relative;
+  }
+
+  .PathTitle::after {
+    content: url('../../assets/line.svg');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+
+.PathSubTitle{
+    color: var(--gray-color);
+    text-align: center;
+}
+.slick-arrow:before {
+	color: black;
+}
