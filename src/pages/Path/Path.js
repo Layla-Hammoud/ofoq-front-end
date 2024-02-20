@@ -1,35 +1,70 @@
 import image from "../../assets/test.jpg";
-import style from './Path.module.css'
-let skillsDeveloped = [
-    "JavaScript proficiency",
-    "React.js development",
-    "Node.js backend development",
-    "HTML5 and CSS3 styling",
-    "Responsive web design",
-    "Version control with Git",
-]
+import style from "./Path.module.css";
+import useApi from "../../hooks/useApi";
+import { Button } from "@mui/material";
+import { useEffect,useState } from "react";
+import { useParams } from 'react-router-dom';
+import Loader from "../../components/Loader/Loader";
 const Path = () => {
-  return (
-    <>
-      <img src={image} className={style.image} alt="path overview"></img>
-      <h1>SG</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec
-        justo eget libero feugiat commodo. Vestibulum non dictum orci. Curabitur
-        quis nisi a ligula tempor feugiat. Vivamus vitae gravida odio. Proin
-        vestibulum mi eu sem ullamcorper, non cursus justo cursus. Lorem ipsum
-        dolor sit amet, consectetur adipiscing elit. Suspendisse nec justo eget
-        libero feugiat commodo. Vestibulum non dictum orci. Curabitur quis nisi
-        a ligula tempor feugiat. Vivamus vitae gravida odio. Proin vestibulum mi
-        eu sem ullamcorper, non cursus justo cursus.
-      </p>
-      <h4>Skills developped</h4>
-      <ul>
-        {skillsDeveloped.map((skill , index)=>(
-            <li>{skill}</li>
-        ))}
-      </ul>
-    </>
-  );
+  const { itemId } = useParams();
+  console.log(itemId)
+  const [path, setPath] = useState(null);
+  const { loading, error, apiCall } = useApi();
+  useEffect(() => {
+      const fetchPaths = async () => {
+        const response = await apiCall({ url: "domain/get-one", method: "post",data:{id :itemId} });
+        setPath(response.data[0]);
+      };
+      fetchPaths();
+    }, []);
+    return (
+      loading ? (
+        <p><Loader/></p>
+      ) : (
+        path && (
+          <div>
+            <section className={style.imageWrapper}>
+              <img src={path.image} className={style.image} alt="path overview" />
+            </section>
+            <section className={style.textWrapper}>
+              <h1 className={style.title}>{path.name}</h1>
+              <h4 className={style.subTitle}>Overview</h4>
+              <p className={style.description}>{path.description}</p>
+              <h4 className={style.subTitle}>Skills developed</h4>
+              <ul className={style.skills}>
+                {path.skillsDeveloped &&
+                  path.skillsDeveloped.map((skill, index) => (
+                    <li key={index}>{skill}</li>
+                  ))}
+              </ul>
+              <Button
+                variant="contained"
+                sx={{
+                  height: "50px",
+                  width: "9rem",
+                  backgroundColor: "#0B7077",
+                  marginTop: "2em",
+                  color: "white",
+                  fontFamily: "Inter, sans-serif",
+                  boxShadow: "none",
+                  "&:hover": {
+                    backgroundColor: "#085b61",
+                    color: "#ffffff",
+                    boxShadow: "none",
+                  },
+                  '@media screen and (max-width: 400px)': {
+                    width: "7rem",
+                    height: "40px",
+                    fontSize: "0.7rem",
+                  },
+                }}
+              >
+                Enroll Now
+              </Button>
+            </section>
+          </div>
+        )
+      )
+    );
 };
 export default Path;

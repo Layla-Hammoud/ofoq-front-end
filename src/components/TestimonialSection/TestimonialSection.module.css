@@ -1,16 +1,15 @@
-.PathSection{
+.TestimonialSection{
     width: 90%;
     margin: 0 auto;
 }
-.PathTitle {
+.TestimonialTitle {
     margin: 1em auto;
     font-size: 2em;
     color: var(--third-color);
     text-align: center;
     position: relative;
   }
-
-  .PathTitle::after {
+  .TestimonialTitle::after {
     content: url('../../assets/line.svg');
     position: absolute;
     top: 50%;
@@ -18,8 +17,11 @@
     transform: translateX(-50%);
   }
 
-
-.PathSubTitle{
+.TestimonialSubTitle{
     color: var(--gray-color);
     text-align: center;
+}
+.cardWrapper{
+    display: flex;
+    flex-wrap: wrap;
 }

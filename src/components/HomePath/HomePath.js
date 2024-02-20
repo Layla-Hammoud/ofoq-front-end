@@ -64,7 +64,7 @@ import useApi from "../../hooks/useApi";
       {paths && paths.length > 0 && (
         <Slider {...settings}>
           {paths.map((path, index) => (
-            <Card key={index} name={path.name} description={path.description} image={path.image}/>
+            <Card key={index} name={path.name} description={path.description} image={path.image} itemId={path._id}/>
           ))}
         </Slider>
       )}

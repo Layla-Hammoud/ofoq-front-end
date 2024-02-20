@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import { Button } from "@mui/material";
 
-const Card = ({ image, name, description }) => {
+const Card = ({ image, name, description, itemId }) => {
   return (
     <>
       <article className={style.cardContainer}>
@@ -12,7 +12,7 @@ const Card = ({ image, name, description }) => {
           <p className={style.description}>
             {description?.substring(0, 150)}...
           </p>
-          <Link to={`/`} style={{ textDecoration: "none" }}>
+          <Link to={`/path/${itemId}`} style={{ textDecoration: "none" }}>
             <Button
               variant="contained"
               sx={{
