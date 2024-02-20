@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
     try {
       setCheckUser(true);
       const response = await axiosInstance.get("/user/get-user");
-      setUser(response.data.data);
+      setUser(response.data.data[0]);
     } catch (err) {
       console.error("Error fetching user data:", err);
       setUser(null);
@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
       setCheckUser(false);
     }
   };
-
   useEffect(() => {
     if(!user && user === null){
     fetchUserData();

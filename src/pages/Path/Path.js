@@ -19,7 +19,7 @@ const Path = () => {
     }, []);
     return (
       loading ? (
-        <p><Loader/></p>
+        <p><Loader heigth={"50vw"}/></p>
       ) : (
         path && (
           <div>

@@ -4,9 +4,10 @@ import Slider from "react-slick";
 import { useState, useEffect } from "react";
 import { ArrowCarousel } from "../ArrowCarousel/ArrowCarousel";
 import useApi from "../../hooks/useApi";
+import Loader from "../Loader/Loader";
  const HomePath = () => {
     const [paths, setPaths] = useState(null);
-    const { apiCall } = useApi();
+    const { apiCall, loading, error } = useApi();
     useEffect(() => {
         const fetchPaths = async () => {
           const response = await apiCall({ url: "domain/get-all", method: "get" });
@@ -55,6 +56,10 @@ import useApi from "../../hooks/useApi";
           },
         ],
       };
+
+      if(loading){
+        return <Loader heigth={"30vw"}/>
+      }
 
   return (
     <>

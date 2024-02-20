@@ -4,13 +4,14 @@
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
-    border-radius: 9px;
     padding: 0px 20px;
     height: 100px;
     width: 100%;
     position: fixed;
     left: 50%;
+    top: 0;
     transform: translate(-50%);
+    z-index: 100;
   }
   .logo {
     margin-left: 5%;
