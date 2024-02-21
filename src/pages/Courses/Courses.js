@@ -23,7 +23,7 @@ import Loader from '../../components/Loader/Loader'
       <h1 className={style.title}>Courses for {user && user.domainId.name}</h1>
       {loading && <Loader heigth={"50vw"}/>}
       <div className={style.CardWrapper}>
-      {courses && courses.map((course, index)=>(<Card key={index} image={course.image} name={course.name} description={course.description} itemId={course._id}/>))}
+      {courses && courses.map((course, index)=>(<Card type={'course'} key={index} image={course.image} name={course.name} description={course.description} itemId={course._id}/>))}
       </div>
       </div>
     </>

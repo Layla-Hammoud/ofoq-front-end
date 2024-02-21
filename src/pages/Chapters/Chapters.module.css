@@ -1,0 +1,46 @@
+.imageWrapper {
+    width:90%;
+    padding-top: 150px;
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .title{
+    font-size: 2em;
+    color: var(--primary-color);
+  }
+  .description{
+    color: var(--gray-color);
+    height: 50px;
+  }
+  .image{
+    object-fit: cover;
+    border-radius: 10px;
+    width: 100%;
+    max-height:35rem;
+  }
+  .textWrapper{
+    width: 90%;
+    margin: 20px auto;
+    margin-bottom: 50px;
+  }
+  .resourceNumber{
+    color: var(--gray-color);
+  }
+.icon{
+    padding-right: 10px;
+}
+@media screen and (max-width: 800px){
+    .title {
+      font-size: 1.8em;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .title {
+      font-size: 1.6em;
+    }
+  }

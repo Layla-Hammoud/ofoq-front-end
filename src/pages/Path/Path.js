@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom';
 import Loader from "../../components/Loader/Loader";
 const Path = () => {
   const { itemId } = useParams();
-  console.log(itemId)
   const [path, setPath] = useState(null);
   const { loading, error, apiCall } = useApi();
   useEffect(() => {

@@ -5,6 +5,7 @@ import Home from "../pages/Home/Home";
 import Courses from "../pages/Courses/Courses";
 import SingInPage from '../pages/SignIn/SignIn'
 import SuccessHome from "../components/SuccessHome/SuccessHome";
+import Chapters from "../pages/Chapters/Chapters";
 import Path from '../pages/Path/Path'
 const AppRoutes = () => {
   return (
@@ -13,6 +14,7 @@ const AppRoutes = () => {
          <Route path="/" element={<Home />}></Route>
          <Route path="/path/:itemId" element={<Path/>}></Route>
          <Route path="/courses" element={<Courses/>}></Route>
+         <Route path="/chapters/:itemId" element={<Chapters/>}></Route>
          </Route>
          <Route path="/test" element={<SuccessHome/>}></Route>
          {/* <Route path="/signup" element={<SignupPage />}></Route> */}

@@ -69,7 +69,7 @@ import Loader from "../Loader/Loader";
       {paths && paths.length > 0 && (
         <Slider {...settings}>
           {paths.map((path, index) => (
-            <Card key={index} name={path.name} description={path.description} image={path.image} itemId={path._id}/>
+            <Card key={index} name={path.name} description={path.description} image={path.image} itemId={path._id} type={"path"}/>
           ))}
         </Slider>
       )}
