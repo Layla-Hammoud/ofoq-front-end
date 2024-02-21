@@ -4,7 +4,7 @@ import PageLayout from "../layouts/PageLayout/PageLayout";
 import Home from "../pages/Home/Home";
 import Courses from "../pages/Courses/Courses";
 import SingInPage from '../pages/SignIn/SignIn'
-import EventCard from "../components/EventCard/EventCard";
+import SuccessHome from "../components/SuccessHome/SuccessHome";
 import Path from '../pages/Path/Path'
 const AppRoutes = () => {
   return (
@@ -14,7 +14,7 @@ const AppRoutes = () => {
          <Route path="/path/:itemId" element={<Path/>}></Route>
          <Route path="/courses" element={<Courses/>}></Route>
          </Route>
-         <Route path="/test" element={<EventCard/>}></Route>
+         <Route path="/test" element={<SuccessHome/>}></Route>
          {/* <Route path="/signup" element={<SignupPage />}></Route> */}
          <Route path="/sign-up" element={<SignupPage />}></Route>
          <Route path="/log-in" element={<SingInPage />}></Route>
