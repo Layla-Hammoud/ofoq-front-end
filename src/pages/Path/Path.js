@@ -1,25 +1,77 @@
 import image from "../../assets/test.jpg";
 import style from "./Path.module.css";
-import useApi from "../../hooks/useApi";
+// import useApi from "../../hooks/useApi";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
+import { fetchData } from "../../data/fetchdata";
 const Path = () => {
   const { itemId } = useParams();
+  const [paths, setPaths] = useState(null);
   const [path, setPath] = useState(null);
-  const { loading, error, apiCall } = useApi();
+  const [loading, setLoading] = useState(false);
+
+  const [image, setImage] = useState(null);
+  const getImagePath = async (imageFilename) => {
+    const { default: imagePath } = await import(
+      `../../assets/${imageFilename}`
+    );
+    setImage(path.image);
+  };
+
+  // const { loading, error, apiCall } = useApi();
+  // useEffect(() => {
+  //   const fetchPaths = async () => {
+  //     const response = await apiCall({
+  //       url: "domain/get-one",
+  //       method: "post",
+  //       data: { id: itemId },
+  //     });
+  //     setPath(response.data[0]);
+  //   };
+  //   fetchPaths();
+  // }, []);
+
+  const [imagePath, setImagePath] = useState(null);
+
   useEffect(() => {
-    const fetchPaths = async () => {
-      const response = await apiCall({
-        url: "domain/get-one",
-        method: "post",
-        data: { id: itemId },
-      });
-      setPath(response.data[0]);
+    const fetchDataAsync = async () => {
+      try {
+        setLoading(true);
+        const result = await fetchData();
+        setPaths(result);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.error("Error fetching data:", error);
+      }
     };
-    fetchPaths();
+
+    fetchDataAsync();
   }, []);
+
+  useEffect(() => {
+    const fetchPathImage = async () => {
+      if (path && path.image) {
+        try {
+          const { default: imagePath } = await import(
+            `../../assets/${path.image}`
+          );
+          setImagePath(imagePath);
+        } catch (error) {
+          console.error("Error loading image:", error);
+        }
+      }
+    };
+
+    if (paths) {
+      const selectedPath = paths.find((item) => item._id === itemId);
+      setPath(selectedPath);
+      fetchPathImage();
+    }
+  }, [paths, itemId, path]);
+
   return loading ? (
     <p>
       <Loader heigth={"50vw"} />
@@ -28,7 +80,7 @@ const Path = () => {
     path && (
       <div>
         <section className={style.imageWrapper}>
-          <img src={path.image} className={style.image} alt="path overview" />
+          <img src={imagePath} className={style.image} alt="path overview" />
         </section>
         <section className={style.textWrapper}>
           <h1 className={style.title}>{path.name}</h1>

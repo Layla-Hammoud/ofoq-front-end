@@ -2,20 +2,33 @@ import Card from "../Card/Card";
 import style from "./HomePath.module.css";
 import Slider from "react-slick";
 import { useState, useEffect } from "react";
-import useApi from "../../hooks/useApi";
+// import useApi from "../../hooks/useApi";
 import Loader from "../Loader/Loader";
 import leftArrow from "../../assets/leftArrow.svg";
 import rightArrow from "../../assets/rightArrow.svg";
+import { fetchData } from "../../data/fetchdata";
 const HomePath = () => {
   const [paths, setPaths] = useState(null);
-  const { apiCall, loading, error } = useApi();
+  const [loading, setLoading] = useState(null);
   useEffect(() => {
-    const fetchPaths = async () => {
-      const response = await apiCall({ url: "domain/get-all", method: "get" });
-      setPaths(response.data);
+    const fetchDataAsync = async () => {
+      setLoading(true);
+      const data = await fetchData();
+      setPaths(data);
+      setLoading(false);
     };
-    fetchPaths();
+
+    fetchDataAsync();
   }, []);
+
+  // const { apiCall, loading, error } = useApi();
+  // useEffect(() => {
+  //   const fetchPaths = async () => {
+  //     const response = await apiCall({ url: "domain/get-all", method: "get" });
+  //     setPaths(response.data);
+  //   };
+  //   fetchPaths();
+  // }, []);
 
   const NextArrow = (props) => (
     <div {...props} className={`${style.slickArrow} ${style.nextArrow}`}>

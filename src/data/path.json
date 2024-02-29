@@ -1,0 +1,188 @@
+[
+  {
+    "image":"sv.jpg",
+    "_id":"1",
+    "name": "Life Sciences (SV)",
+    "target_audience": "Students aiming for university programs in medicine, pharmacy, biology, etc.",
+    "skillsDeveloped": [
+      "Gain deep understanding of fundamental biological concepts",
+      "Develop strong analytical and problem-solving skills",
+      "Prepare for Lebanese Baccalaureate exams (SV section) and university entrance exams"
+    ],
+    "content_structure": [
+      "Video lectures by experienced biology teachers",
+      "Interactive quizzes and practice exams",
+      "Detailed study guides and revision materials",
+      "Access to relevant scientific articles and research papers"
+    ],
+    "key_features": [
+      "Focus on exam preparation aligned with latest curriculum",
+      "Expert guidance from qualified teachers",
+      "Engaging learning experience with interactive elements"
+    ],
+    "estimated_completion_time": "180 hours (flexible)",
+    "call_to_action": "Become a future life science expert!",
+    "reviews": [
+      {
+        "name": "Sarah B.",
+        "rating": 5,
+        "review": "Valuable for understanding complex biological concepts."
+      },
+      {
+        "name": "David A.",
+        "rating": 5,
+        "review": "Knowledgeable and passionate teachers make learning enjoyable."
+      }
+    ],
+    "courses_included": [
+      "Cell Biology",
+      "Genetics",
+      "Evolution",
+      "Ecology",
+      "Human Anatomy and Physiology"
+    ],
+    "number_of_students": "5",
+    "number_of_video_resources": "5",
+    "number_of_text_resources": "19",
+    "description":"The Life Sciences (SV) path provides a comprehensive foundation in fundamental biological concepts. Through engaging video lectures by experienced biology teachers, interactive quizzes and practice exams, detailed study guides, and access to relevant scientific articles, you will gain a deep understanding of essential topics like cell biology, genetics, evolution, ecology, and human anatomy and physiology. This path emphasizes exam preparation, ensuring you are well-equipped for the Lebanese Baccalaureate exams (SV section) and university entrance exams."
+  },
+  {
+    "image":"sg.jpg",
+    "_id":"2",
+    "name": "General Sciences (SG)",
+    "target_audience": "Students aiming for university programs in engineering, physics, etc.",
+    "skillsDeveloped": [
+      "Develop solid understanding of physics, chemistry, and mathematics",
+      "Master problem-solving through real-world applications",
+      "Prepare for Lebanese Baccalaureate exams (SG section) and university entrance exams"
+    ],
+    "content_structure": [
+      "Engaging video lectures covering physics, chemistry, and mathematics",
+      "Interactive exercises and practice exams with solutions",
+      "Detailed study guides and revision materials",
+      "Access to supplementary resources like simulations and experiments"
+    ],
+    "key_features": [
+      "Emphasis on core scientific principles",
+      "Interactive learning environment",
+      "Preparation for diverse fields with a strong science foundation"
+    ],
+    "estimated_completion_time": "180 hours (flexible)",
+    "call_to_action": "Build a strong foundation for your scientific career!",
+    "reviews": [
+      {
+        "name": "Sarah B.",
+        "rating": 5,
+        "review": "Helped solidify understanding of physics and chemistry for engineering programs."
+      },
+      {
+        "name": "Sarah B.",
+        "rating": 5,
+        "review": "Practice exams sessions similar to actual Baccalaureate exams"
+      }
+    ],
+    "courses_included": [
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "Introduction to Engineering (optional)",
+      "Introduction to Computer Science (optional)"
+    ],
+    "number_of_students": "25",
+    "number_of_video_resources": "15",
+    "number_of_text_resources": "11",
+    "description":"The General Sciences (SG) path equips you with a solid understanding of the core scientific principles in physics, chemistry, and mathematics. Engaging video lectures delivered by experienced instructors, interactive exercises and practice exams with solutions, detailed study guides, and access to supplementary resources like simulations and experiments will help you master these fundamental concepts. This path focuses on building a strong science foundation, preparing you for diverse university programs and future careers in various scientific fields."
+  },
+  {
+    "image":"se.jpg",
+    "_id":"3",
+    "name": "Sociology and Economics (SE)",
+    "target_audience": "Students interested in university programs in economics, business, law, etc.",
+    "skillsDeveloped": [
+      "Gain comprehensive understanding of core concepts in sociology and economics",
+      "Develop critical thinking and analytical skills",
+      "Prepare for Lebanese Baccalaureate exams (SE section) and university entrance exams"
+    ],
+    "content_structure": [
+      "Informative video lectures on key sociological and economic topics",
+      "Interactive exercises and assignments applying concepts to real-world scenarios",
+      "Comprehensive study guides and revision materials",
+      "Access to relevant news articles and case studies"
+    ],
+    "key_features": [
+      "Real-world application connecting theory to current events",
+      "Development of critical thinking skills through objective analysis",
+      "Preparation for diverse fields in social sciences and business"
+    ],
+    "estimated_completion_time": "150 hours (flexible)",
+    "call_to_action": "Explore the fascinating world of social and economic interactions!",
+    "reviews": [
+        {
+          "name": "Sarah B.",
+          "rating": 5,
+          "review":  "Deeper understanding of social and economic factors shaping our world."
+        },
+        {
+          "name": "Sarah B.",
+          "rating": 5,
+          "review": "Interactive exercises and discussions valuable for developing critical thinking skills."
+        }
+      ],
+    "courses_included": [
+      "Principles of Economics",
+      "Introduction to Sociology",
+      "Lebanese Economy"
+    ],
+    "number_of_students": "8",
+    "number_of_video_resources": "5",
+    "number_of_text_resources": "9",
+    "description":"The Sociology and Economics (SE) path delves into the fascinating world of social and economic interactions. Informative video lectures on key topics, interactive exercises and assignments applying concepts to real-world scenarios, comprehensive study guides, and relevant news articles and case studies will equip you with a comprehensive understanding of core concepts in sociology and economics. This path develops your critical thinking and analytical skills, enabling you to interpret and evaluate social and economic phenomena objectively and prepare effectively for the Lebanese Baccalaureate exams (SE section) and university entrance exams."
+  },
+  {
+    "image":"lh.jpg",
+    "_id":"4",
+    "name": "Humanities and Literature (LH)",
+    "target_audience": "Students interested in university programs in literature, history, law, etc.",
+    "learning_outcomes": [
+      "Develop deep understanding of literary works and historical periods",
+      "Strengthen critical reading, writing, and communication skills",
+      "Prepare for Lebanese Baccalaureate exams (LH section) and university entrance exams"
+    ],
+    "content_structure": [
+      "Video lectures on literature, history, and philosophy",
+      "Interactive activities and assignments for text analysis",
+      "Detailed study guides and revision materials",
+      "Access to literary works, historical documents, and philosophical writings"
+    ],
+    "skillsDeveloped": [
+      "Explore diverse themes and perspectives in humanities",
+      "Develop communication skills through writing and critical thinking",
+      "Prepare for humanities-based careers with a strong foundation"
+    ],
+    "estimated_completion_time": "150 hours (flexible)",
+    "call_to_action": "Immerse yourself in the world of humanities and literature!",
+    "reviews": [
+        {
+          "name": "Sarah B.",
+          "rating": 5,
+          "review": "Instrumental in developing critical thinking and appreciation for literature."
+        },
+        {
+          "name": "Sarah B.",
+          "rating": 5,
+          "review":"Engaging lectures and interactive activities make learning history enjoyable."
+        }
+      ],
+    "courses_included": [
+      "Arabic Literature",
+      "English Literature",
+      "World History",
+      "Lebanese History",
+      "Introduction to Philosophy"
+    ],
+    "number_of_students": "10",
+    "number_of_video_resources": "6",
+    "number_of_text_resources": "11",
+    "description":"The Humanities and Literature (LH) path immerses you in the rich tapestry of human expression and historical events. In-depth video lectures from passionate instructors, interactive activities and assignments analyzing and interpreting texts, detailed study guides, and access to various literary works, historical documents, and philosophical writings will deepen your understanding of diverse themes and perspectives in literature, history, and philosophy. This path helps you develop strong critical reading, writing, and communication skills, preparing you for the Lebanese Baccalaureate exams (LH section) and university programs in humanities-based "
+  }
+]

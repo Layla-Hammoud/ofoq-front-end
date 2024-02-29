@@ -1,14 +1,36 @@
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 import { Button } from "@mui/material";
+import { useState, useEffect } from "react";
 
 const Card = ({ image, name, description, itemId, type, homeSlick }) => {
+  const [imagePath, setImagePath] = useState(null);
+  const getImagePath = async (imageFilename) => {
+    const { default: imagePath } = await import(
+      `../../assets/${imageFilename}`
+    );
+    setImagePath(imagePath);
+  };
+
+  useEffect(() => {
+    if (type === "path") {
+      getImagePath(image);
+    }
+  }, []);
+
   const cardHomeStyle = homeSlick ? { marginLeft: "60px" } : {};
 
   return (
     <>
       <article className={style.cardContainer} style={cardHomeStyle}>
-        <img src={image} alt={name} className={style.pathImage}></img>
+        {type === "path" ? (
+          imagePath && (
+            <img src={imagePath} alt={name} className={style.pathImage} />
+          )
+        ) : (
+          <img src={image} alt={name} className={style.pathImage} />
+        )}
+
         <div className={style.textSection}>
           <p className={style.name}>{name}</p>
           <p className={style.description}>
