@@ -1,78 +1,84 @@
-.heroWrapper{
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    align-items: center;
-    justify-content: space-around;
-    background-color: var(--secondary-color);
+.heroWrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: space-around;
+  background-color: var(--secondary-color);
 }
-.image{
-    align-self: flex-end;
-    width: 40%;
-    height: 90%;
-    background-image: url('../../assets/HeroImage.svg');
-    background-repeat: no-repeat; 
-    background-position: bottom;
-    background-size: cover;
+.image {
+  align-self: flex-end;
+  width: 35%;
+  height: 90%;
+  background-image: url("../../assets/HeroImage.svg");
+  background-repeat: no-repeat;
+  background-position: 40% center;
+  background-size: cover;
 }
-.sloganWrapper{
-    width: 40%;
-    position: relative;
-    font-size: 2em;
-    color: var(--primary-color);
+.sloganWrapper {
+  width: 45%;
+  position: relative;
+  font-size: 3em;
+  color: var(--primary-color);
 }
 
 .slogan span {
-    background: linear-gradient(transparent 0%, transparent 45%, #ffffff 45%, #ffffff 55%, transparent 75%, transparent 100%);
+  background: linear-gradient(
+    transparent 0%,
+    transparent 45%,
+    #ffffff 45%,
+    #ffffff 55%,
+    transparent 75%,
+    transparent 100%
+  );
+}
+.lines {
+  position: absolute;
+  top: -29em;
+  left: 8em;
+}
+@media (max-width: 1500px) {
+  .lines {
+    display: none;
   }
-  .lines{
-    position: absolute;
-    top: -29em;
-    left: 8em;
+  .sloganWrapper {
+    width: 50%;
   }
-  @media (max-width: 1500px) {
-    .lines{
-        display: none;
-      }
-      .sloganWrapper{
-        width: 50%;
-    }
+}
+@media (max-width: 1200px) {
+  .heroWrapper {
+    flex-direction: column;
+    align-items: center;
+    height: 122vh;
   }
-  @media (max-width: 1200px) {
-    .heroWrapper{
-        flex-direction: column;
-        align-items: center;
-        height: 122vh;
-    }
-    .sloganWrapper{
-        width: 90%;
-        margin-top: 4em;
-    }
-    .image{
-        width: 90%;
-        height:50%;
-        background-size: contain;
-    }
-    
+  .sloganWrapper {
+    width: 90%;
+    margin-top: 4em;
   }
-  @media (max-width: 768px) {
-    .heroWrapper{
-        height: 95vh;
-    }
-    .sloganWrapper {
-      font-size: 1.5em; /* Adjust the font size for smaller screens */
-    }
+  .image {
+    width: 90%;
+    height: 50%;
+    background-size: contain;
   }
-  
-  /* Media query for screens with a maximum width of 480 pixels */
-  @media (max-width: 480px) {
-    .heroWrapper{
-        height: 68vh;
-    }
-    .image{
-        display: none;
-    }
-    .sloganWrapper {
-      font-size: 1.2em; /* Further adjust the font size for even smaller screens */
-    }
+}
+@media (max-width: 768px) {
+  .heroWrapper {
+    height: 95vh;
   }
+  .sloganWrapper {
+    font-size: 1.5em; /* Adjust the font size for smaller screens */
+  }
+}
+
+/* Media query for screens with a maximum width of 480 pixels */
+@media (max-width: 480px) {
+  .heroWrapper {
+    height: 68vh;
+  }
+  .image {
+    display: none;
+  }
+  .sloganWrapper {
+    font-size: 1.2em; /* Further adjust the font size for even smaller screens */
+  }
+}

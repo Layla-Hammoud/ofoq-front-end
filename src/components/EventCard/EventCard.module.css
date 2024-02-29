@@ -1,99 +1,103 @@
-.cardContainer{
-    width: 55%;
-    margin: 5% auto;
-    display: flex;
-    height: 250px;
-    box-shadow: 0px 4px 24px 0px rgba(123, 123, 123, 0.15);
+.cardContainer {
+  margin-top: 25px;
+  width: 48%;
+  display: flex;
+  height: 250px;
+  box-shadow: 0px 4px 24px 0px rgba(123, 123, 123, 0.15);
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.03);
+  }
 }
-.textWrapper{
-    width: 70%;
-    height: 100%;
+.textWrapper {
+  width: 70%;
+  height: 100%;
 }
-.time{
-    display: flex;
-    gap: 35px;
-    margin-left: 30px;
-    color: var(--gray-color);
-    margin-right: 30px;
+.time {
+  display: flex;
+  gap: 45px;
+  margin-left: 30px;
+  color: var(--gray-color);
+  margin-right: 30px;
 }
-.image{
-    width: 35%;
-    height: 100%;
-    object-fit: cover;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
+.image {
+  width: 35%;
+  height: 100%;
+  object-fit: cover;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
 }
-.name{
-    color: var(--primary-color);
+.name {
+  color: var(--primary-color);
 }
-.nameWrapper{
-    margin-left: 30px;
+.nameWrapper {
+  margin-left: 30px;
 }
-.title{
-    color: var(--primary-color);
-    font-size: 1.3em;
-    font-weight: 600;
-    margin-left: 30px;
+.title {
+  color: var(--primary-color);
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-left: 30px;
 }
-.button{
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 1.1em;
-    padding-top: 16px;
-    display: block;
-    color:  var(--primary-color); ;
-    margin: 5% auto;
-    width: 95%;
-    height: 36px;
-    background-color: white;
-    border: none;
-    border-top: 1px solid #EAEAEA;
+.button {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding-top: 16px;
+  display: block;
+  color: var(--primary-color);
+  margin: 5% auto;
+  width: 95%;
+  height: 36px;
+  background-color: white;
+  border: none;
+  border-top: 1px solid #eaeaea;
 }
-.icon{
-    width: 15px;
-    height: 15px;
-    padding-right: 10px;
+.icon {
+  width: 15px;
+  height: 15px;
+  padding-right: 10px;
 }
- @media screen and (max-width: 1250px){
-.cardContainer{
+@media screen and (max-width: 1250px) {
+  .cardContainer {
     height: 280px;
+  }
 }
-}
-@media screen and (max-width: 960px){
-  .cardContainer{
+@media screen and (max-width: 960px) {
+  .cardContainer {
     width: 90%;
   }
 }
-@media screen and (max-width: 600px){
-    .cardContainer{
-        flex-direction: column;
-        height: 460px;
-    }
-    .image{
-        width: 100%;
-        height: 230px;
-        border-top-right-radius: 10px;
-        border-bottom-left-radius: 0px;
-    }
-    .title{
-        font-size: 1.1em;
-        margin-bottom: 10px;
-    }
-    .textWrapper{
-        width: 100%;
-    }
-    .time{
-        font-size: 12px;
-    }
-    .button{
-        margin-top: 0;
-    }
-    .nameWrapper{
-        margin-bottom: 10px;
-    }
+@media screen and (max-width: 600px) {
+  .cardContainer {
+    flex-direction: column;
+    height: 460px;
+  }
+  .image {
+    width: 100%;
+    height: 230px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+  }
+  .title {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  .textWrapper {
+    width: 100%;
+  }
+  .time {
+    font-size: 12px;
+  }
+  .button {
+    margin-top: 0;
+  }
+  .nameWrapper {
+    margin-bottom: 10px;
+  }
 }
-@media screen and (max-width: 320px){
-    .cardContainer{
-        height: 480px;
-    }
+@media screen and (max-width: 320px) {
+  .cardContainer {
+    height: 480px;
+  }
 }

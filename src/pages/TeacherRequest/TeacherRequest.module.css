@@ -1,0 +1,152 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+}
+.textWrapper {
+  flex-basis: 40%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+  height: 90vh;
+  margin: auto 0;
+  row-gap: 2rem;
+}
+
+.textWrapper::after,
+.textWrapper::before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  opacity: 0.5;
+}
+
+.textWrapper::after {
+  width: 250px;
+  height: 250px;
+  bottom: 90px;
+  right: 50px;
+}
+
+.textWrapper::before {
+  width: 200px;
+  height: 200px;
+  bottom: 200px;
+  right: 170px;
+}
+
+.textWrapper h1 {
+  margin: 5.4rem 0 0 0;
+  font-size: 2rem;
+  color: var(--primary-color);
+  width: 90%;
+}
+.textWrapper p {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  line-height: 30px;
+  align-self: flex-start;
+  width: 90%;
+  margin: 0;
+}
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  border-radius: 10px;
+  min-height: 90%;
+  height: 90%;
+  flex-basis: 40%;
+  padding: 20px 50px;
+  background-color: white;
+  justify-content: flex-start;
+  gap: 25px;
+  position: relative;
+}
+.number {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: #e1e1e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  color: #8d8d99;
+}
+.stepTitleWrapper {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-top: 30px;
+}
+.activeStep {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+.buttonWrapper{
+  display: flex;
+  justify-content: space-between;
+}
+.nextWrapper{
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 1000px) {
+    .textWrapper::after{
+      width: 150px;
+      height: 150px;
+    }
+    .textWrapper::before {
+      width: 100px;
+      height: 100px;
+      bottom: 170px;
+      right: 150px;
+    }
+}
+@media (max-width: 800px){
+  .container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .textWrapper::after{
+   display: none;
+  }
+  .textWrapper::before {
+    display: none;
+  }
+  .textWrapper{
+    align-self: center;
+    width: 65%;
+    flex-basis: 20%;
+    min-height: auto;
+    height: auto;
+    width: 95%;
+  }
+  .textWrapper h1{
+    margin: 3.8rem 0 0 0;
+  }
+  .textWrapper p{
+    margin-bottom: 2rem;
+  }
+  .formWrapper{
+    margin-bottom: 3.8rem;
+    min-height: 750px;
+  }
+}
+
+@media (max-width: 550px){
+.formWrapper{
+  padding: 50px 30px;
+  width: 77%;
+}
+
+}

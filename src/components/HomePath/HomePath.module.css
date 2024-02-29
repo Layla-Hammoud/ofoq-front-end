@@ -1,26 +1,49 @@
-.PathSection{
-    width: 90%;
-    max-width: 90%;
-    margin: 0 auto;
+.PathSection {
+  width: 90%;
+  max-width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .PathTitle {
-    margin: 1em auto;
-    font-size: 2em;
-    color: var(--third-color);
-    text-align: center;
-    position: relative;
-  }
+  margin: 1em auto;
+  font-size: 2em;
+  color: var(--third-color);
+  text-align: center;
+  position: relative;
+}
 
-  .PathTitle::after {
-    content: url('../../assets/line.svg');
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.PathTitle::after {
+  content: url("../../assets/line.svg");
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+.PathSubTitle {
+  color: var(--gray-color);
+  text-align: center;
+}
 
-.PathSubTitle{
-    color: var(--gray-color);
-    text-align: center;
+.slickArrow {
+  position: absolute;
+  top: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.arrowImage {
+  width: 24px;
+  height: 24px;
+}
+
+.nextArrow {
+  right: 0px;
+  cursor: pointer;
+}
+
+.prevArrow {
+  cursor: pointer;
+  z-index: 999;
+  margin-right: 20px;
 }

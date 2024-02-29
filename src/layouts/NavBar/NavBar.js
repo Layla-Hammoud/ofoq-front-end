@@ -5,6 +5,8 @@ import logo from "../../assets/logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Button } from "@mui/material";
+import { studentNavItems } from "./NavBarItems";
+import { teacherNavItems } from "./NavBarItems";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const bar1 = [style.bar1, open ? style.bar1active : ""].join(" ");
@@ -14,20 +16,31 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => {
       // Check window width and update the style directly
-      const liElement = document.getElementById('conditionalLi');
+      const liElement = document.getElementById("conditionalLi");
       if (liElement) {
-        liElement.style.display = window.innerWidth < 1222 ? 'block' : 'none';
+        liElement.style.display = window.innerWidth < 1222 ? "block" : "none";
       }
     };
     handleResize();
     // Add event listener for window resize
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
-  }, []); 
+  }, []);
   const handleClick = () => {
     setOpen(!open);
+  };
+
+  const getNavItemsBasedOnRole = (role) => {
+    switch (role) {
+      case "student":
+        return studentNavItems;
+      case "teacher":
+        return teacherNavItems;
+      default:
+        return NavItems;
+    }
   };
 
   return (
@@ -56,32 +69,34 @@ const Navbar = () => {
           </li>
         ))}
         <li id="conditionalLi">
-        <span className={style.navlinks}>
-          <NavLink className={style.link} to='sign-up'>sign up</NavLink>
+          <span className={style.navlinks}>
+            <NavLink className={style.link} to="sign-up">
+              sign up
+            </NavLink>
           </span>
         </li>
         <div className={style.navButtonContainer}>
           <li>
-          <NavLink to='sign-up'>
-            <Button
-              variant="contained"
-              sx={{
-                height: "50px",
-                width: "8rem",
-                backgroundColor: "#0B7077",
-                marginRight: "10px",
-                color: "white",
-                fontFamily: "Inter, sans-serif",
-                boxShadow: "none",
-                "&:hover": {
-                  backgroundColor: "#085b61",
-                  color: "#ffffff",
+            <NavLink to="sign-up">
+              <Button
+                variant="contained"
+                sx={{
+                  height: "50px",
+                  width: "8rem",
+                  backgroundColor: "#0B7077",
+                  marginRight: "10px",
+                  color: "white",
+                  fontFamily: "Inter, sans-serif",
                   boxShadow: "none",
-                },
-              }}
-            >
-              SIGN UP
-            </Button>
+                  "&:hover": {
+                    backgroundColor: "#085b61",
+                    color: "#ffffff",
+                    boxShadow: "none",
+                  },
+                }}
+              >
+                SIGN UP
+              </Button>
             </NavLink>
           </li>
         </div>

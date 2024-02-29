@@ -38,7 +38,7 @@ const MenuProps = {
 
 const Signup = () => {
   const { fetchUserData } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [paths, setPaths] = useState(null);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -67,10 +67,10 @@ const Signup = () => {
     validationSchema: validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-         await axiosInstance.post("user/signup", values);
+        await axiosInstance.post("user/signup", values);
         toast.success("Enrolled successfully");
-        await fetchUserData
-        navigate('/')
+        await fetchUserData;
+        navigate("/");
         resetForm();
       } catch (error) {
         if (
@@ -110,7 +110,7 @@ const Signup = () => {
       setPaths(response.data);
     };
     fetchPaths();
-  }, [apiCall]);
+  }, []);
   return (
     <>
       <img src={logo} className="logo" alt="logo"></img>
@@ -214,7 +214,6 @@ const Signup = () => {
                     input={<OutlinedInput label="path" />}
                     value={values.domainId}
                     onChange={handleChange}
-
                     onBlur={handleBlur}
                     MenuProps={MenuProps}
                     required
@@ -227,9 +226,13 @@ const Signup = () => {
                       ))}
                   </Select>
                   {touched.domainId && errors.domainId && (
-                    <Typography variant="body2" sx={{
-                      marginLeft:"2.9%"
-                    }} color="error">
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        marginLeft: "2.9%",
+                      }}
+                      color="error"
+                    >
                       {errors.domainId}
                     </Typography>
                   )}
@@ -256,8 +259,7 @@ const Signup = () => {
                     type={showPassword ? "text" : "password"}
                     value={values.password}
                     name="password"
-                    onChange={handleChange
-                    }
+                    onChange={handleChange}
                     onBlur={handleBlur}
                     endAdornment={
                       <InputAdornment position="end">
@@ -274,9 +276,13 @@ const Signup = () => {
                     label="Password"
                   />
                   {touched.password && errors.password && (
-                    <Typography variant="body2" sx={{
-                      marginLeft:"2.9%"
-                    }}  color="error">
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        marginLeft: "2.9%",
+                      }}
+                      color="error"
+                    >
                       {errors.password}
                     </Typography>
                   )}

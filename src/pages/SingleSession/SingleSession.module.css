@@ -1,0 +1,64 @@
+.imageWrapper {
+  width: 90%;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.title {
+  font-size: 2em;
+  margin-top: 0;
+  color: var(--primary-color);
+}
+.otherEventTitle {
+  font-size: 1.5em;
+  color: var(--primary-color);
+}
+.image {
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%;
+  max-height: 35rem;
+}
+.textWrapper {
+  width: 90%;
+  margin: 2% auto;
+  line-height: var(--line-height-base);
+}
+.titleAndButtonContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
+}
+.IconWrapper {
+  display: flex;
+  align-items: center;
+}
+.infoWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.description {
+  width: 80%;
+  font-size: var(--font-size-base);
+  min-height: 50px;
+}
+.eventCardWrapper {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+@media (max-width: 860px) {
+  .infoWrapper {
+    gap: 20px;
+  }
+}
