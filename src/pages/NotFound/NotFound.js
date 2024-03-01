@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import NotFoundImage from "../../assets/notfound.svg";
-import { Box, Button, Container, SvgIcon, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 
 const NotFound = () => (
   <>

@@ -1,115 +1,118 @@
-.footer{
-    max-width: 100%;
-    width: 100%;
-    display: flex;
-    height: 400px;
-    background-image: url(../../assets/footer.svg);
-    background-repeat: no-repeat;
-    justify-content: space-around;
-    background-size: cover;
-    align-items: center;
+.footer {
+  max-width: 100%;
+  display: flex;
+  height: 400px;
+  background-image: url(../../assets/footer.svg);
+  background-repeat: no-repeat;
+  justify-content: space-around;
+  background-size: cover;
+  align-items: center;
 }
-.linksWrapper, .inputWrapper, .infoWrapper{
+.linksWrapper,
+.inputWrapper,
+.infoWrapper {
   color: var(--primary-color);
 }
-.linksWrapper h6{
+.linksWrapper h6 {
   color: black;
   font-size: 1.1em;
 }
-.inputWrapper{
+.inputWrapper {
   text-align: center;
   color: black;
 }
-.infoWrapper{
+.infoWrapper {
   width: 300px;
   margin-top: 2%;
 }
 .SearchboxWrap {
-    display: flex;
-    width: 500px;
-    margin-top: 30px;
+  display: flex;
+  width: 500px;
+  margin-top: 30px;
+}
+
+.SearchboxWrap input {
+  flex: 1;
+  padding: 30px 20px;
+  font-size: 1.1em;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  box-shadow: none;
+  border: none;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.19);
+}
+
+.SearchboxWrap button {
+  padding-right: 10px;
+  background-color: #fff;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.19);
+  border: none;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.SearchboxWrap button span {
+  margin-left: 50px;
+  padding: 24px 45px;
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: 300;
+  color: #fff;
+  background-color: #0b7077;
+  border-radius: 20px;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.19);
+}
+
+.SearchboxWrap button span:hover {
+  background-color: #085b61;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width: 1050px) {
+  .footer {
+    flex-wrap: wrap;
+    height: 450px;
+    padding-bottom: 50px;
+    padding-top: 70px;
   }
-  
-  .SearchboxWrap input {
-    flex: 1;
-    padding: 30px 20px;
-    font-size: 1.1em;
-    border-top-left-radius: 25px;
-    border-bottom-left-radius: 25px;
-    box-shadow: none;
-    border: none;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width: 600px) {
+  .footer {
+    height: 700px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    /* padding-right: 5%;
+    padding-left: 5%; */
   }
-  
-  .SearchboxWrap button {
-    padding-right: 10px;
-    background-color: #fff;
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
-    box-shadow: 5px 4px 6px rgba(0, 0, 0, 0.19);
-    border: none;
-    cursor: pointer;
-    cursor: hand;
+  .infoWrapper,
+  .linksWrapper,
+  .inputWrapper {
+    margin-left: 5%;
   }
-  
+  .infoWrapper {
+    width: 80%;
+  }
+  .SearchboxWrap {
+    width: 350px;
+  }
   .SearchboxWrap button span {
-    margin-left: 50px;
-    padding: 24px 45px;
-    font-size: 0.9em;
-    text-transform: uppercase;
-    font-weight: 300;
-    color: #fff;
-    background-color: #0B7077;
-    border-radius: 20px;
-    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.19);
+    margin-left: 0;
   }
-  
-  .SearchboxWrap button span:hover {
-    background-color: #085b61;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width: 460px) {
+  .SearchboxWrap button span {
+    padding: 20px 25px;
   }
-  @media screen and (max-width: 1050px){
-    .footer{
-      flex-wrap: wrap;
-      height: 450px;
-      padding-bottom: 50px;
-      padding-top:70px ;
-    }
+  .SearchboxWrap input {
+    width: 90%;
   }
-  @media screen and (max-width: 600px){
-    .footer{
-      height: 700px;
-      flex-direction: column;
-      flex-wrap: nowrap;
-      justify-content: center;
-      align-items: flex-start;
-      padding-right: 5%;
-      padding-left: 5%;
-    }
-    .infoWrapper{
-
-      width: 80%;
-    }
-    .SearchboxWrap {
-      width: 350px;
-
-    }
-    .SearchboxWrap button span{
-      margin-left: 0;
-    }
+  .footer {
+    height: 750px;
   }
-  @media screen and (max-width: 460px){
-    .SearchboxWrap button span{
-      padding: 20px 25px;
-    }
-    .SearchboxWrap input {
-      width: 90%;
-    }
-    .footer{
-      height: 750px;
-    }
-    .SearchboxWrap {
-      width: 250px;
-
-    }
+  .SearchboxWrap {
+    width: 250px;
   }
+}

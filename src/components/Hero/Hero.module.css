@@ -1,10 +1,12 @@
 .heroWrapper {
   display: flex;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  min-width: 100%;
   align-items: center;
   justify-content: space-around;
   background-color: var(--secondary-color);
+  overflow: hidden;
 }
 .image {
   align-self: flex-end;
@@ -14,6 +16,7 @@
   background-repeat: no-repeat;
   background-position: 40% center;
   background-size: cover;
+  overflow: hidden;
 }
 .sloganWrapper {
   width: 45%;
@@ -67,6 +70,9 @@
   }
   .sloganWrapper {
     font-size: 1.5em; /* Adjust the font size for smaller screens */
+  }
+  .image {
+    display: none;
   }
 }
 
