@@ -16,7 +16,7 @@ export const NavItems = [
   },
   {
     title: "Contact",
-    url: "/sign-up",
+    url: "/contact-us",
     cName: "navlinks",
   },
 ];

@@ -1,17 +1,15 @@
-import Hero from "../../components/Hero/Hero"
-import HomePath from "../../components/HomePath/HomePath"
-import TestimonialSection from '../../components/TestimonialSection/TestimonialSection'
-import Footer from "../../layouts/Footer/Footer"
-import SuccessHome from "../../components/SuccessHome/SuccessHome"
- const Home = ()=> {
+import Hero from "../../components/Hero/Hero";
+import HomePath from "../../components/HomePath/HomePath";
+import TestimonialSection from "../../components/TestimonialSection/TestimonialSection";
+import SuccessHome from "../../components/SuccessHome/SuccessHome";
+const Home = () => {
   return (
     <>
-      <Hero/>
-      <HomePath/>
-      <SuccessHome/>
-      <TestimonialSection/>
-      <Footer/>
+      <Hero />
+      <HomePath />
+      <SuccessHome />
+      <TestimonialSection />
     </>
-  )
-}
-export default Home
+  );
+};
+export default Home;
