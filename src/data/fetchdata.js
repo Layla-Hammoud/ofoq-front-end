@@ -5,6 +5,6 @@ export const fetchData = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(jsonData);
-    }, 2000); // Simulate a 1-second delay
+    }, 1000); // Simulate a 1-second delay
   });
 };

@@ -1,16 +1,39 @@
-import image from "../../assets/test.jpg";
 import style from "./Path.module.css";
+import textIconDetail from "../../assets/text.svg";
+import videoIconDetail from "../../assets/video.svg";
+import bookIcon from "../../assets/book.svg";
 // import useApi from "../../hooks/useApi";
+import clockIcon from "../../assets/clock.png";
+import personIcon from "../../assets/person.png";
 import { Button } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import { fetchData } from "../../data/fetchdata";
+import PathRatingCard from "../../components/PathRatingCard/PathRatingCard";
+import { AuthContext } from "../../Context/AuthContext";
+import { Link } from "react-router-dom";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  RedditShareButton,
+  FacebookIcon,
+  LinkedinIcon,
+  RedditIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "react-share";
 const Path = () => {
+  const { user } = useContext(AuthContext);
   const { itemId } = useParams();
   const [paths, setPaths] = useState(null);
   const [path, setPath] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const currentUrl = window.location.href;
+  const shareMessage =
+    "Elevate your high school exam preparation with Ofok! 🚀 Unleash your potential, conquer challenges, and excel in your academic journey. Join us today for a brighter future! ";
+  const hashtag = "#OfokAdventures #HighSchoolSuccess";
 
   const [image, setImage] = useState(null);
   const getImagePath = async (imageFilename) => {
@@ -19,7 +42,6 @@ const Path = () => {
     );
     setImage(path.image);
   };
-
   // const { loading, error, apiCall } = useApi();
   // useEffect(() => {
   //   const fetchPaths = async () => {
@@ -66,13 +88,13 @@ const Path = () => {
     };
 
     if (paths) {
-      const selectedPath = paths.find((item) => item._id === itemId);
+      const selectedPath = paths.find((item) => item.slug === itemId);
       setPath(selectedPath);
       fetchPathImage();
     }
   }, [paths, itemId, path]);
 
-  return loading ? (
+  return loading && !image ? (
     <p>
       <Loader heigth={"50vw"} />
     </p>
@@ -82,42 +104,163 @@ const Path = () => {
         <section className={style.imageWrapper}>
           <img src={imagePath} className={style.image} alt="path overview" />
         </section>
-        <section className={style.textWrapper}>
-          <h1 className={style.title}>{path.name}</h1>
-          <h4 className={style.subTitle}>Overview</h4>
-          <p className={style.description}>{path.description}</p>
-          <h4 className={style.subTitle}>Skills developed</h4>
-          <ul className={style.skills}>
-            {path.skillsDeveloped &&
-              path.skillsDeveloped.map((skill, index) => (
-                <li key={index}>{skill}</li>
+        <article className={style.pathInfoContainer}>
+          <section className={style.textWrapper}>
+            <div className={style.titleAndButtonWrapper}>
+              <h1 className={style.title}>{path.name}</h1>
+              {!user && (
+                <Link to="/sign-up">
+                  <Button
+                    variant="contained"
+                    sx={{
+                      height: "50px",
+                      width: "9rem",
+                      backgroundColor: "#0B7077",
+                      color: "white",
+                      fontFamily: "Inter, sans-serif",
+                      boxShadow: "none",
+                      "&:hover": {
+                        backgroundColor: "#085b61",
+                        color: "#ffffff",
+                        boxShadow: "none",
+                      },
+                      "@media screen and (max-width: 400px)": {
+                        width: "7rem",
+                        height: "40px",
+                        fontSize: "0.7rem",
+                      },
+                    }}
+                  >
+                    Enroll Now
+                  </Button>
+                </Link>
+              )}
+            </div>
+            <h4 className={style.subTitle}>Overview</h4>
+            <p className={style.description}>{path.description}</p>
+            <h4 className={style.subTitle}>Skills developed by this path</h4>
+            <ul className={style.skills}>
+              {path.skillsDeveloped &&
+                path.skillsDeveloped.map((skill, index) => (
+                  <li key={index}>{skill}</li>
+                ))}
+            </ul>
+            <h4 className={style.subTitle}>Key Features in this path</h4>
+            <ul className={style.skills}>
+              {path.key_features &&
+                path.key_features.map((features, index) => (
+                  <li key={index}>{features}</li>
+                ))}
+            </ul>
+            <h4 className={style.subTitle}>Courses included in this path</h4>
+            <div className={style.coursesTitleContainer}>
+              {path.skillsDeveloped &&
+                path.courses_included.map((course, index) => (
+                  <div className={style.courseBox}>{course}</div>
+                ))}
+            </div>
+            <h4 className={style.subTitle}>Reviews</h4>
+            {path.reviews &&
+              path.reviews.map((review, index) => (
+                <>
+                  <PathRatingCard
+                    review={review.review}
+                    rating={review.rating}
+                    date={review.date}
+                    name={review.name}
+                  />
+                </>
               ))}
-          </ul>
-          <Button
-            variant="contained"
-            sx={{
-              height: "50px",
-              width: "9rem",
-              backgroundColor: "#0B7077",
-              marginTop: "2em",
-              color: "white",
-              fontFamily: "Inter, sans-serif",
-              boxShadow: "none",
-              "&:hover": {
-                backgroundColor: "#085b61",
-                color: "#ffffff",
-                boxShadow: "none",
-              },
-              "@media screen and (max-width: 400px)": {
-                width: "7rem",
-                height: "40px",
-                fontSize: "0.7rem",
-              },
-            }}
-          >
-            Enroll Now
-          </Button>
-        </section>
+          </section>
+          <aside className={style.courseDetails}>
+            <h4 className={style.detailTitle}>Course Details</h4>
+            <div className={style.detailRowWrapper}>
+              <img
+                className={style.detailIcon}
+                alt="clock"
+                src={clockIcon}
+              ></img>
+              <p>{path.estimated_completion_time} hour(s)</p>
+            </div>
+            <div className={style.detailRowWrapper}>
+              <img
+                className={style.detailIcon}
+                alt="clock"
+                src={videoIconDetail}
+              ></img>
+              <p>{path.number_of_video_resources} video base resources</p>
+            </div>
+            <div className={style.detailRowWrapper}>
+              <img
+                className={style.detailIcon}
+                alt="text"
+                src={textIconDetail}
+              ></img>
+              <p>
+                {path.number_of_text_resources} text base resources available
+              </p>
+            </div>
+            <div className={style.detailRowWrapper}>
+              <img
+                className={style.detailIcon}
+                alt="clock"
+                src={personIcon}
+              ></img>
+              <p>{path.number_of_students} student(s) enrolled</p>
+            </div>
+            <div className={style.detailRowWrapper}>
+              <img
+                className={style.detailIcon}
+                alt="clock"
+                src={bookIcon}
+              ></img>
+              <p>{path.courses_included.length} courses available</p>
+            </div>
+            <h4 className={style.shareTitle}>
+              Empower others! Share this path Now
+            </h4>
+
+            {/* Twitter Share Button */}
+            <TwitterShareButton
+              url={currentUrl}
+              title={shareMessage}
+              hashtags={[hashtag]}
+              className={style.socialMediaButton}
+            >
+              <TwitterIcon size={32} round />
+            </TwitterShareButton>
+
+            {/* Facebook Share Button */}
+            <FacebookShareButton
+              url={currentUrl}
+              className={style.socialMediaButton}
+              quote={shareMessage}
+              hashtag={hashtag}
+            >
+              <FacebookIcon size={32} round />
+            </FacebookShareButton>
+
+            {/* LinkedIn Share Button */}
+            <LinkedinShareButton
+              className={style.socialMediaButton}
+              url={currentUrl}
+              title={shareMessage}
+              summary={shareMessage}
+              source={currentUrl}
+            >
+              <LinkedinIcon size={32} round />
+            </LinkedinShareButton>
+
+            {/* Reddit Share Button */}
+            <RedditShareButton
+              url={currentUrl}
+              title={shareMessage}
+              className={style.socialMediaButton}
+            >
+              <RedditIcon size={32} round />
+            </RedditShareButton>
+          </aside>
+        </article>
       </div>
     )
   );

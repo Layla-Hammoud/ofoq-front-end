@@ -1,0 +1,39 @@
+.reviewCardContainer {
+  width: 90%;
+  box-shadow: 0px 4px 24px 0px rgba(123, 123, 123, 0.15);
+  height: 180px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+.nameimageWrapper {
+  display: flex;
+  gap: 15px;
+  padding-top: 30px;
+}
+.ratingWrapper {
+  display: flex;
+  align-items: center;
+}
+.classNameratingHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.reviewName {
+  font-weight: bold;
+  margin-top: 5px;
+}
+.reviewDate {
+  color: var(--gray-color);
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 700px) {
+  .classNameratingHeaderContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .reviewCardContainer {
+    height: 250px;
+  }
+}

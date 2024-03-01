@@ -1,5 +1,6 @@
 [
   {
+    "slug":"life-sciences-sv",
     "image":"sv.jpg",
     "_id":"1",
     "name": "Life Sciences (SV)",
@@ -18,20 +19,22 @@
     "key_features": [
       "Focus on exam preparation aligned with latest curriculum",
       "Expert guidance from qualified teachers",
-      "Engaging learning experience with interactive elements"
+      "Different type of resources available for each path"
     ],
-    "estimated_completion_time": "180 hours (flexible)",
+    "estimated_completion_time": "18 hours",
     "call_to_action": "Become a future life science expert!",
     "reviews": [
       {
         "name": "Sarah B.",
         "rating": 5,
-        "review": "Valuable for understanding complex biological concepts."
+        "review": "Valuable for understanding complex biological concepts.",
+        "date":"Feb 29, 2024"
       },
       {
         "name": "David A.",
         "rating": 5,
-        "review": "Knowledgeable and passionate teachers make learning enjoyable."
+        "review": "Knowledgeable and passionate teachers make learning enjoyable.",
+        "date":"Feb 29, 2024"
       }
     ],
     "courses_included": [
@@ -47,6 +50,7 @@
     "description":"The Life Sciences (SV) path provides a comprehensive foundation in fundamental biological concepts. Through engaging video lectures by experienced biology teachers, interactive quizzes and practice exams, detailed study guides, and access to relevant scientific articles, you will gain a deep understanding of essential topics like cell biology, genetics, evolution, ecology, and human anatomy and physiology. This path emphasizes exam preparation, ensuring you are well-equipped for the Lebanese Baccalaureate exams (SV section) and university entrance exams."
   },
   {
+    "slug":"general-sciences-sg",
     "image":"sg.jpg",
     "_id":"2",
     "name": "General Sciences (SG)",
@@ -67,26 +71,28 @@
       "Interactive learning environment",
       "Preparation for diverse fields with a strong science foundation"
     ],
-    "estimated_completion_time": "180 hours (flexible)",
+    "estimated_completion_time": "18",
     "call_to_action": "Build a strong foundation for your scientific career!",
     "reviews": [
       {
         "name": "Sarah B.",
         "rating": 5,
-        "review": "Helped solidify understanding of physics and chemistry for engineering programs."
+        "review": "Helped solidify understanding of physics and chemistry for engineering programs.",
+        "date":"Feb 29, 2024"
       },
       {
         "name": "Sarah B.",
         "rating": 5,
-        "review": "Practice exams sessions similar to actual Baccalaureate exams"
+        "review": "Practice exams sessions similar to actual Baccalaureate exams",
+        "date":"Feb 29, 2024"
       }
     ],
     "courses_included": [
       "Physics",
       "Chemistry",
       "Mathematics",
-      "Introduction to Engineering (optional)",
-      "Introduction to Computer Science (optional)"
+      "Introduction to Engineering",
+      "Introduction to Computer Science"
     ],
     "number_of_students": "25",
     "number_of_video_resources": "15",
@@ -94,6 +100,7 @@
     "description":"The General Sciences (SG) path equips you with a solid understanding of the core scientific principles in physics, chemistry, and mathematics. Engaging video lectures delivered by experienced instructors, interactive exercises and practice exams with solutions, detailed study guides, and access to supplementary resources like simulations and experiments will help you master these fundamental concepts. This path focuses on building a strong science foundation, preparing you for diverse university programs and future careers in various scientific fields."
   },
   {
+    "slug":"sociology-economics-se",
     "image":"se.jpg",
     "_id":"3",
     "name": "Sociology and Economics (SE)",
@@ -120,12 +127,14 @@
         {
           "name": "Sarah B.",
           "rating": 5,
-          "review":  "Deeper understanding of social and economic factors shaping our world."
+          "review":  "Deeper understanding of social and economic factors shaping our world.",
+          "date":"Feb 29, 2024"
         },
         {
           "name": "Sarah B.",
           "rating": 5,
-          "review": "Interactive exercises and discussions valuable for developing critical thinking skills."
+          "review": "Interactive exercises and discussions valuable for developing critical thinking skills.",
+          "date":"Feb 29, 2024"
         }
       ],
     "courses_included": [
@@ -139,6 +148,7 @@
     "description":"The Sociology and Economics (SE) path delves into the fascinating world of social and economic interactions. Informative video lectures on key topics, interactive exercises and assignments applying concepts to real-world scenarios, comprehensive study guides, and relevant news articles and case studies will equip you with a comprehensive understanding of core concepts in sociology and economics. This path develops your critical thinking and analytical skills, enabling you to interpret and evaluate social and economic phenomena objectively and prepare effectively for the Lebanese Baccalaureate exams (SE section) and university entrance exams."
   },
   {
+    "slug":"humanities-literature-lh",
     "image":"lh.jpg",
     "_id":"4",
     "name": "Humanities and Literature (LH)",
@@ -159,18 +169,20 @@
       "Develop communication skills through writing and critical thinking",
       "Prepare for humanities-based careers with a strong foundation"
     ],
-    "estimated_completion_time": "150 hours (flexible)",
+    "estimated_completion_time": "15 hours",
     "call_to_action": "Immerse yourself in the world of humanities and literature!",
     "reviews": [
         {
           "name": "Sarah B.",
           "rating": 5,
-          "review": "Instrumental in developing critical thinking and appreciation for literature."
+          "review": "Instrumental in developing critical thinking and appreciation for literature.",
+          "date":"Feb 29, 2024"
         },
         {
           "name": "Sarah B.",
           "rating": 5,
-          "review":"Engaging lectures and interactive activities make learning history enjoyable."
+          "review":"Engaging lectures and interactive activities make learning history enjoyable.",
+          "date":"Feb 29, 2024"
         }
       ],
     "courses_included": [

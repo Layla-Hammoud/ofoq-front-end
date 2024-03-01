@@ -3,7 +3,7 @@ import style from "./Card.module.css";
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
 
-const Card = ({ image, name, description, itemId, type, homeSlick }) => {
+const Card = ({ image, name, description, itemId, type, homeSlick, slug }) => {
   const [imagePath, setImagePath] = useState(null);
   const getImagePath = async (imageFilename) => {
     const { default: imagePath } = await import(

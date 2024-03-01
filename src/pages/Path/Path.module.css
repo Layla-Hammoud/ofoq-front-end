@@ -1,71 +1,145 @@
 .imageWrapper {
-    width:90%;
-    padding-top: 150px;
-    display: flex;
-    justify-content: center;
-    height: 50%;
-    align-items: center;
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-  .title{
-    font-size: 2em;
-    color: var(--primary-color);
-  }
-  .image{
-    object-fit: cover;
-    border-radius: 10px;
-    width: 100%;
-    max-height:35rem;
-  }
-  .textWrapper{
-    width: 90%;
-    margin: 2% auto;
-    line-height: var(--line-height-base);
-    background-image: url(../../assets/triangle.png),
-    url(../../assets/emptycircle.png);
-    background-repeat: no-repeat;
-    background-position: 90% 30%, 90% 75%;
-  }
-  .description{
-    width: 80%;
-    font-size: var(--font-size-base);
-    color: #191A15;
-  }
-  .subTitle{
-    font-size: 1.3em;
-    font-weight: 600;
-  }
-  .skills{
-    font-size: var(--font-size-base);
-  }
-  @media screen and (max-width: 800px){
-    .textWrapper{
-      background-image:
-      url(../../assets/emptycircle.png);
-      background-position: right 75%;
-    }
-    .description, .skills{
-      width: 100%;
-      font-size: (var(--font-size-base) * 0.9)
-    }
-    .title {
-      font-size: 1.8em;
-    }
-    .subTitle {
-      font-size: 1.2em; 
-    }
-  }
+  width: 90%;
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  align-items: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.pathInfoContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 2% auto;
+  width: 90%;
+}
+.detailRowWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.socialMediaButton {
+  margin-right: 20px;
+}
+.courseDetails {
+  width: 25%;
+}
+.detailIcon {
+  width: 20px;
+  height: 20px;
+}
+.title {
+  font-size: 2em;
+  color: var(--primary-color);
+  margin-top: 0;
+}
 
-  @media screen and (max-width: 480px) {
-    .description, .skills{
-      width: 100%;
-      font-size: (var(--font-size-base) * 0.8)
-    }
-    .title {
-      font-size: 1.6em;
-    }
-    .subTitle {
-      font-size: 1.1em;
-    }
+.image {
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%;
+  max-height: 35rem;
+}
+.detailTitle,
+.shareTitle {
+  margin-top: 0;
+  color: var(--primary-color);
+  font-size: 1.1em;
+}
+.shareTitle {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.textWrapper {
+  width: 70%;
+  line-height: var(--line-height-base);
+  /* background-image: url(../../assets/triangle.png),
+    url(../../assets/emptycircle.png);
+  background-repeat: no-repeat;
+  background-position: 90% 30%, 90% 75%; */
+}
+.description {
+  width: 90%;
+  font-size: var(--font-size-base);
+  color: #191a15;
+}
+.subTitle {
+  font-size: 1.3em;
+  font-weight: 600;
+}
+.skills {
+  font-size: var(--font-size-base);
+  padding-inline-start: 20px;
+}
+.coursesTitleContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.courseBox {
+  box-shadow: 0px 4px 24px 0px rgba(123, 123, 123, 0.15);
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  text-align: center;
+}
+.titleAndButtonWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+@media screen and (max-width: 800px) {
+  .description,
+  .skills {
+    width: 100%;
+    font-size: (var(--font-size-base) * 0.9);
   }
+  .title {
+    font-size: 1.8em;
+  }
+  .subTitle {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 700px) {
+  .pathInfoContainer {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .courseDetails {
+    width: 100%;
+    order: -1;
+    margin-bottom: 20px;
+  }
+  .textWrapper {
+    width: 100%;
+  }
+  .titleAndButtonWrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .description,
+  .skills {
+    width: 100%;
+    font-size: (var(--font-size-base) * 0.8);
+  }
+  .title {
+    font-size: 1.6em;
+  }
+  .subTitle {
+    font-size: 1.1em;
+  }
+  .courseBox {
+    width: 130px;
+    height: 80px;
+  }
+}

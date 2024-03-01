@@ -103,7 +103,7 @@ const HomePath = () => {
                 name={path.name}
                 description={path.description}
                 image={path.image}
-                itemId={path._id}
+                itemId={path.slug}
                 type={"path"}
                 homeSlick={true}
               />
