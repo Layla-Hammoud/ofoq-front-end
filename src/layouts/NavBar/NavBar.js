@@ -28,6 +28,11 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
   const handleClick = () => {
     setOpen(!open);
   };

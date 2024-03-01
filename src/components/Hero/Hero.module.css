@@ -32,7 +32,8 @@
     #ffffff 45%,
     #ffffff 55%,
     transparent 75%,
-    transparent 100%
+    transparent 100% /* padding-right: 5%;
+    padding-left: 5%; */
   );
 }
 .lines {
@@ -55,7 +56,7 @@
     height: 122vh;
   }
   .sloganWrapper {
-    width: 90%;
+    width: 85%;
     margin-top: 4em;
   }
   .image {
@@ -71,20 +72,17 @@
   .sloganWrapper {
     font-size: 1.5em; /* Adjust the font size for smaller screens */
   }
-  .image {
-    display: none;
-  }
 }
 
-/* Media query for screens with a maximum width of 480 pixels */
 @media (max-width: 480px) {
   .heroWrapper {
-    height: 68vh;
+    height: 60vh;
   }
   .image {
     display: none;
   }
   .sloganWrapper {
-    font-size: 1.2em; /* Further adjust the font size for even smaller screens */
+    font-size: 1.5em;
+    margin-top: 2em;
   }
 }

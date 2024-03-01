@@ -26,6 +26,10 @@ const Hero = () => {
                 color: "#ffffff",
                 boxShadow: "none",
               },
+              "@media (max-width: 480px)": {
+                height: "40px",
+                mt: "20px",
+              },
             }}
           >
             Explore Paths

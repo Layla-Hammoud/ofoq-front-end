@@ -27,6 +27,7 @@ const AppRoutes = () => {
         <Route path="/chapters/:itemId" element={<Chapters />}></Route>
         <Route path="/session/:eventId" element={<SingleSession />}></Route>
         <Route path="/sessions" element={<AllSessions />}></Route>
+        <Route path="/about-us" element={<AllSessions />}></Route>
         <Route path="/profile/:profileId" element={<Profile />}></Route>
       </Route>
       <Route path="/test" element={<Sessions />}></Route>
