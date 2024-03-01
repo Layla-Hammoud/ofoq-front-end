@@ -10,6 +10,7 @@ import {
   InputLabel,
   FormControl,
 } from "@mui/material";
+import previouseIcon from "../../assets/previous.svg";
 import { useFormik } from "formik";
 import { AuthContext } from "../../Context/AuthContext";
 import * as Yup from "yup";
@@ -113,7 +114,9 @@ const Signup = () => {
   }, []);
   return (
     <>
-      <img src={logo} className="logo" alt="logo"></img>
+      <Link to="/">
+        <img src={logo} className="logo" alt="logo"></img>
+      </Link>
       <Box
         sx={{
           flex: "1 1 auto",
@@ -329,15 +332,16 @@ const Signup = () => {
           marginLeft: "10%",
         }}
       >
-        <Typography
-          variant="body2"
-          sx={{
-            color: "#969696",
-            fontFamily: "Inter",
-          }}
-        >
-          <Link to="/"> --Home</Link>
-        </Typography>
+        <Link to="/">
+          <div className="backpagelink">
+            <img
+              alt="previous"
+              className="previouseIcon"
+              src={previouseIcon}
+            ></img>
+            <span>Home</span>
+          </div>
+        </Link>
       </Stack>
     </>
   );

@@ -1,9 +1,7 @@
 import {
   Box,
   Button,
-  MenuItem,
   OutlinedInput,
-  Select,
   Stack,
   TextField,
   Typography,
@@ -11,6 +9,7 @@ import {
   FormControl,
 } from "@mui/material";
 import { useFormik } from "formik";
+import previouseIcon from "../../assets/previous.svg";
 import { AuthContext } from "../../Context/AuthContext";
 import * as Yup from "yup";
 import logo from "../../assets/logo.svg";
@@ -19,25 +18,25 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./auth.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axiosInstance from "../../utils/axios";
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+// const ITEM_HEIGHT = 48;
+// const ITEM_PADDING_TOP = 8;
+// const MenuProps = {
+//   PaperProps: {
+//     style: {
+//       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+//       width: 250,
+//     },
+//   },
+// };
 
 const Login = () => {
   const { fetchUserData } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
@@ -60,10 +59,10 @@ const Login = () => {
     validationSchema: validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-         await axiosInstance.post("user/log-in", values);
+        await axiosInstance.post("user/log-in", values);
         toast.success("Logged In successfully");
-        await fetchUserData
-        navigate('/')
+        await fetchUserData;
+        navigate("/");
         resetForm();
       } catch (error) {
         if (
@@ -99,7 +98,9 @@ const Login = () => {
   } = formik;
   return (
     <>
-      <img src={logo} className="logo" alt="logo"></img>
+      <Link to="/">
+        <img src={logo} className="logo" alt="logo"></img>
+      </Link>
       <Box
         sx={{
           flex: "1 1 auto",
@@ -125,7 +126,7 @@ const Login = () => {
                   fontWeight: "bold",
                 }}
               >
-               Log in
+                Log in
               </Typography>
               <Typography
                 variant="body2"
@@ -181,8 +182,7 @@ const Login = () => {
                     type={showPassword ? "text" : "password"}
                     value={values.password}
                     name="password"
-                    onChange={handleChange
-                    }
+                    onChange={handleChange}
                     onBlur={handleBlur}
                     endAdornment={
                       <InputAdornment position="end">
@@ -199,9 +199,13 @@ const Login = () => {
                     label="Password"
                   />
                   {touched.password && errors.password && (
-                    <Typography variant="body2" sx={{
-                      marginLeft:"2.9%"
-                    }}  color="error">
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        marginLeft: "2.9%",
+                      }}
+                      color="error"
+                    >
                       {errors.password}
                     </Typography>
                   )}
@@ -255,7 +259,16 @@ const Login = () => {
             fontFamily: "Inter",
           }}
         >
-          <Link to="/"> --Home</Link>
+          <Link to="/">
+            <div className="backpagelink">
+              <img
+                alt="previous"
+                className="previouseIcon"
+                src={previouseIcon}
+              ></img>
+              <span>Home</span>
+            </div>
+          </Link>
         </Typography>
       </Stack>
     </>

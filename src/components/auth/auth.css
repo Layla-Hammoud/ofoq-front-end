@@ -1,13 +1,24 @@
-a{
-    color: #0B7077 ;
-    text-decoration: none;
+a {
+  color: #0b7077;
+  text-decoration: none;
 }
-a:hover{
-   color: #085b61; 
+a:hover {
+  color: #085b61;
 }
-.logo{
-    width: 55px;
-    height: 68px;
-    margin-left: 10%;
-    margin-top: 1.5%;
+.logo {
+  width: 55px;
+  height: 68px;
+  margin-left: 10%;
+  margin-top: 1.5%;
+}
+.previouseIcon {
+  width: 30px;
+  height: 20px;
+}
+.backpagelink {
+  display: flex;
+  align-items: center;
+  width: 55px;
+  height: 68px;
+  gap: 10px;
 }
