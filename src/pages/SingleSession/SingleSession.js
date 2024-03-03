@@ -105,42 +105,44 @@ const SingleSession = () => {
         <section className={style.textWrapper}>
           <section className={style.titleAndButtonContainer}>
             <h1 className={style.title}>{event.title}</h1>
-            <LoadingButton
-              fullWidth
-              size="large"
-              sx={{
-                width: "130px",
-                height: "50px",
-                borderRadius: "10px",
-                fontFamily: "Inter",
-                backgroundColor: goingLoading
-                  ? isGoing
-                    ? "gray" // gray when Going and loading
-                    : "gray" // Gray when not Going and loading
-                  : isGoing
-                  ? "gray" // Blue when Going and not loading
-                  : "#0B7077", // blue when not Going and not loading
-                "&:hover": {
+            {!isGoing && (
+              <LoadingButton
+                fullWidth
+                size="large"
+                sx={{
+                  width: "130px",
+                  height: "50px",
+                  borderRadius: "10px",
+                  fontFamily: "Inter",
                   backgroundColor: goingLoading
                     ? isGoing
-                      ? "gray" // Dark blue when Going and loading
+                      ? "gray" // gray when Going and loading
                       : "gray" // Gray when not Going and loading
                     : isGoing
-                    ? "gray" // gray when Going and not loading (match background color)
-                    : "#085b61", // blue when not Going and not loading
-                },
-                "@media(max-width:600px)": {
-                  width: "90px",
-                },
-              }}
-              type="submit"
-              variant="contained"
-              loading={goingLoading}
-              loadingPosition="end"
-              onClick={handleGoing}
-            >
-              {isGoing ? "Ongoing" : "Going"}
-            </LoadingButton>
+                    ? "gray" // Blue when Going and not loading
+                    : "#0B7077", // blue when not Going and not loading
+                  "&:hover": {
+                    backgroundColor: goingLoading
+                      ? isGoing
+                        ? "gray" // Dark blue when Going and loading
+                        : "gray" // Gray when not Going and loading
+                      : isGoing
+                      ? "gray" // gray when Going and not loading (match background color)
+                      : "#085b61", // blue when not Going and not loading
+                  },
+                  "@media(max-width:600px)": {
+                    width: "120px",
+                  },
+                }}
+                type="submit"
+                variant="contained"
+                loading={goingLoading}
+                loadingPosition="end"
+                onClick={handleGoing}
+              >
+                Participate
+              </LoadingButton>
+            )}
           </section>
           <section className={style.infoWrapper}>
             <div className={style.IconWrapper}>
@@ -196,7 +198,7 @@ const SingleSession = () => {
             </div>
           </section>
           <p className={style.description}>{event.description}</p>
-          <h3 className={style.otherEventTitle}>Other Available Events</h3>
+          <h3 className={style.otherEventTitle}>Other Available Sessions</h3>
           <section className={style.eventCardWrapper}>
             {events && events.length > 0
               ? events.map((event) => (

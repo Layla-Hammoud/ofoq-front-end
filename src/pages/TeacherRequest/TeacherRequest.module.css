@@ -40,7 +40,7 @@
 }
 
 .textWrapper h1 {
-  margin: 5.4rem 0 0 0;
+  margin: 2.1rem 0 0 0;
   font-size: 2rem;
   color: var(--primary-color);
   width: 90%;
@@ -88,28 +88,34 @@
   color: var(--primary-color);
   background-color: var(--secondary-color);
 }
-.buttonWrapper{
+.buttonWrapper {
   display: flex;
   justify-content: space-between;
 }
-.nextWrapper{
+.nextWrapper {
   display: flex;
   justify-content: flex-end;
 }
-
-@media (max-width: 1000px) {
-    .textWrapper::after{
-      width: 150px;
-      height: 150px;
-    }
-    .textWrapper::before {
-      width: 100px;
-      height: 100px;
-      bottom: 170px;
-      right: 150px;
-    }
+.returnLink {
+  display: flex;
+  align-items: center;
+  width: 55px;
+  height: 50px;
+  gap: 10px;
 }
-@media (max-width: 800px){
+@media (max-width: 1000px) {
+  .textWrapper::after {
+    width: 150px;
+    height: 150px;
+  }
+  .textWrapper::before {
+    width: 100px;
+    height: 100px;
+    bottom: 170px;
+    right: 150px;
+  }
+}
+@media (max-width: 800px) {
   .container {
     width: 100%;
     height: auto;
@@ -117,13 +123,13 @@
     flex-direction: column;
     justify-content: flex-start;
   }
-  .textWrapper::after{
-   display: none;
+  .textWrapper::after {
+    display: none;
   }
   .textWrapper::before {
     display: none;
   }
-  .textWrapper{
+  .textWrapper {
     align-self: center;
     width: 65%;
     flex-basis: 20%;
@@ -131,22 +137,28 @@
     height: auto;
     width: 95%;
   }
-  .textWrapper h1{
-    margin: 3.8rem 0 0 0;
+  .textWrapper h1 {
+    margin: 2.2rem 0 0 0;
   }
-  .textWrapper p{
+  .returnLink {
+    margin-top: 1rem;
+  }
+  .textWrapper p {
     margin-bottom: 2rem;
   }
-  .formWrapper{
+  .formWrapper {
     margin-bottom: 3.8rem;
     min-height: 750px;
   }
 }
 
-@media (max-width: 550px){
-.formWrapper{
-  padding: 50px 30px;
-  width: 77%;
-}
-
+@media (max-width: 550px) {
+  .formWrapper {
+    padding: 50px 30px;
+    width: 77%;
+  }
+  .stepTitleWrapper {
+    gap: 7px;
+    font-size: 14px;
+  }
 }

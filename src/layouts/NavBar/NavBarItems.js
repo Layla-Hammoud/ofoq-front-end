@@ -5,11 +5,6 @@ export const NavItems = [
     cName: "navlinks",
   },
   {
-    title: "About",
-    url: "/about",
-    cName: "navlinks",
-  },
-  {
     title: "Sessions",
     url: "/sessions",
     cName: "navlinks",
@@ -17,6 +12,16 @@ export const NavItems = [
   {
     title: "Contact",
     url: "/contact-us",
+    cName: "navlinks",
+  },
+  {
+    title: "About",
+    url: "/about",
+    cName: "navlinks",
+  },
+  {
+    title: "Join as Teacher",
+    url: "/teacher-request",
     cName: "navlinks",
   },
 ];

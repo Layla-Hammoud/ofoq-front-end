@@ -1,20 +1,19 @@
 import { useEffect, useContext, useMemo, useState } from "react";
 import { Avatar, Box, Typography } from "@mui/material";
-import { DataGrid, gridClasses } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
+import { Button } from "@mui/material";
 import { AuthContext } from "../../../Context/AuthContext";
 import Loader from "../../../components/Loader/Loader";
-
 import useApi from "../../../hooks/useApi";
+import SessionModel from "../../../components/SessionModule/SessionModal";
 import moment from "moment";
-import { grey } from "@mui/material/colors";
-import UsersActions from "./SessionsActions";
+import SessionsActions from "./SessionsActions";
+import "./session.css";
 const Sessions = () => {
-  //   const {
-  //     state: { users },
-  //     dispatch,
-  //   } = useValue();
   const { user } = useContext(AuthContext);
   const { loading, error, apiCall } = useApi();
+  const [open, setOpen] = useState(false);
+  const [successDelete, setSuccessDelete] = useState(false);
   const [sessions, setSessions] = useState(null);
   useEffect(() => {
     const fetchSessions = async () => {
@@ -27,10 +26,26 @@ const Sessions = () => {
     };
     if (user) {
       fetchSessions();
+      setSuccessDelete(false);
     }
   }, [user]);
+  useEffect(() => {
+    const fetchSessions = async () => {
+      const response = await apiCall({
+        url: "event/getByTeacher",
+        method: "post",
+        data: { id: user._id },
+      });
+      setSessions(response.data);
+    };
+    if (user && successDelete) {
+      fetchSessions();
+      setSuccessDelete(false);
+    }
+  }, [successDelete]);
   const [pageSize, setPageSize] = useState(5);
-  const [rowId, setRowId] = useState(null);
+
+  const handleOpen = () => setOpen(true);
 
   const columns = useMemo(
     () => [
@@ -38,7 +53,9 @@ const Sessions = () => {
         field: "image",
         headerName: "Image",
         width: 60,
-        renderCell: (params) => <Avatar src={params.row.image} />,
+        renderCell: (params) => (
+          <Avatar src={params.row.image} variant="rounded" />
+        ),
         sortable: false,
         filterable: false,
       },
@@ -54,9 +71,6 @@ const Sessions = () => {
         field: "platformType",
         headerName: "Platform Type",
         width: 120,
-        type: "singleSelect",
-        valueOptions: ["Zoom", "Teams", "Google Meet", "Other"],
-        editable: true,
       },
       {
         field: "date",
@@ -75,7 +89,7 @@ const Sessions = () => {
 
       {
         field: "lastTime",
-        headerName: "Last Time",
+        headerName: "End Time",
         width: 200,
         renderCell: (params) =>
           moment(params.row.lastTime).format("YYYY-MM-DD HH:MM:SS"),
@@ -87,17 +101,20 @@ const Sessions = () => {
         renderCell: (params) =>
           moment(params.row.createdAt).format("YYYY-MM-DD HH:MM:SS"),
       },
-      { field: "_id", headerName: "Id", width: 150 },
       {
         field: "actions",
         headerName: "Actions",
         type: "actions",
+        width: 200,
         renderCell: (params) => (
-          <UsersActions {...{ params, rowId, setRowId }} />
+          <SessionsActions
+            setSuccessDelete={setSuccessDelete}
+            {...{ params }}
+          />
         ),
       },
     ],
-    [rowId]
+    []
   );
 
   return (
@@ -108,14 +125,27 @@ const Sessions = () => {
         margin: "160px auto",
       }}
     >
-      <Typography
-        variant="h3"
-        component="h3"
-        sx={{ textAlign: "center", mt: 3, mb: 3 }}
-      >
-        Manage Users
+      <Typography variant="h3" component="h3" sx={{ mt: 3, mb: 3 }}>
+        Manage Your Sessions
       </Typography>
-
+      <Button
+        size="large"
+        sx={{
+          mb: 3,
+          height: "50px",
+          borderRadius: "10px",
+          fontFamily: "Inter",
+          backgroundColor: "#0B7077",
+          width: "150px",
+          "&:hover": {
+            backgroundColor: "#085b61",
+          },
+        }}
+        onClick={handleOpen}
+        variant="contained"
+      >
+        Add Session
+      </Button>
       {loading ? (
         <Loader height="50vh" />
       ) : (
@@ -131,10 +161,10 @@ const Sessions = () => {
               top: params.isFirstVisible ? 0 : 5,
               bottom: params.isLastVisible ? 0 : 5,
             })}
-            onCellEditCommit={(params) => setRowId(params.id)}
           />
         )
       )}
+      <SessionModel setOpen={setOpen} open={open} />
     </Box>
   );
 };

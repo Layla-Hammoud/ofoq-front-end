@@ -1,77 +1,49 @@
-import { Box, CircularProgress, Fab } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Check, Save } from "@mui/icons-material";
-import { green } from "@mui/material/colors";
-// import { updateStatus } from '../../../actions/user';
-// import { useValue } from '../../../context/ContextProvider';
-
-const SessionsActions = ({ params, rowId, setRowId }) => {
-  // const { dispatch } = useValue();
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-
-  // const handleSubmit = async () => {
-  //   setLoading(true);
-
-  //   const { role, active, _id } = params.row;
-  // const result = await updateStatus({ role, active }, _id, dispatch);
-  //   if (result) {
-  //     setSuccess(true);
-  //     setRowId(null);
-  //   }
-  //   setLoading(false);
-  // };
-
-  useEffect(() => {
-    if (rowId === params.id && success) setSuccess(false);
-  }, [rowId]);
+import { Box, IconButton, Tooltip } from "@mui/material";
+import { Delete, Edit, Preview } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import useApi from "../../../hooks/useApi";
+import { toast } from "react-toastify";
+const RoomsActions = ({ params, setSuccessDelete }) => {
+  const { apiCall } = useApi();
+  const handleDeleteSession = async () => {
+    try {
+      const response = await apiCall({
+        url: "event/delete",
+        method: "post",
+        data: { id: params.row._id },
+      });
+      if (response.success) {
+        setSuccessDelete(true);
+        toast.success("The session is deleted succesfully");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <Box
-      sx={{
-        m: 1,
-        position: "relative",
-      }}
-    >
-      {success ? (
-        <Fab
-          color="primary"
-          sx={{
-            width: 40,
-            height: 40,
-            bgcolor: green[500],
-            "&:hover": { bgcolor: green[700] },
-          }}
+    <Box>
+      <Tooltip title="View room details">
+        <Link to={`/session/${params.row._id}`}>
+          <IconButton>
+            <Preview />
+          </IconButton>
+        </Link>
+      </Tooltip>
+      <Tooltip title="Edit this room">
+        <IconButton
+        // onClick={() => {}}
         >
-          <Check />
-        </Fab>
-      ) : (
-        <Fab
-          color="primary"
-          sx={{
-            width: 40,
-            height: 40,
-          }}
-          disabled={params.id !== rowId || loading}
-          // onClick={handleSubmit}
-        >
-          <Save />
-        </Fab>
-      )}
-      {loading && (
-        <CircularProgress
-          size={52}
-          sx={{
-            color: green[500],
-            position: "absolute",
-            top: -6,
-            left: -6,
-            zIndex: 1,
-          }}
-        />
-      )}
+          <Edit />
+        </IconButton>
+      </Tooltip>
+      <Tooltip title="Delete this room">
+        <IconButton onClick={() => handleDeleteSession()}>
+          <Delete />
+        </IconButton>
+      </Tooltip>
     </Box>
   );
 };
 
-export default SessionsActions;
+export default RoomsActions;

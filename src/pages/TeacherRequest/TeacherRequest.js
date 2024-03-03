@@ -10,6 +10,8 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import nextSvg from "../../assets/next.svg";
 import useApi from "../../hooks/useApi";
 import LoadingButton from "@mui/lab/LoadingButton";
+import { Link } from "react-router-dom";
+import previousLink from "../../assets/previous.svg";
 const TeacherRequest = () => {
   const { loading, error, apiCall } = useApi();
   const [currentStep, setCurrentStep] = useState(1);
@@ -129,6 +131,16 @@ const TeacherRequest = () => {
       />
       <div className={style.container}>
         <section className={style.textWrapper}>
+          <Link to="/">
+            <div className={style.returnLink}>
+              <img
+                alt="previous"
+                className="previouseIcon"
+                src={previousLink}
+              ></img>
+              <span>Home</span>
+            </div>
+          </Link>
           <h1> Join Our Team of Passionate Educators! </h1>
           <p>
             We are seeking talented and inspiring individuals to join our team

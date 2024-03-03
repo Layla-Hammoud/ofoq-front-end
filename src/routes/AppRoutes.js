@@ -8,7 +8,7 @@ import TeacherRequest from "../pages/TeacherRequest/TeacherRequest";
 import Chapters from "../pages/Chapters/Chapters";
 import AllSessions from "../pages/AllSessions/AllSessions";
 import ContactUs from "../pages/ContactUs/ContactUs";
-import Footer from "../layouts/Footer/Footer";
+import SessionModal from "../components/SessionModule/SessionModal";
 import NotFound from "../pages/NotFound/NotFound";
 import SingleSession from "../pages/SingleSession/SingleSession";
 import Path from "../pages/Path/Path";
@@ -27,7 +27,7 @@ const AppRoutes = () => {
         <Route path="/chapters/:itemId" element={<Chapters />}></Route>
         <Route path="/session/:eventId" element={<SingleSession />}></Route>
         <Route path="/sessions" element={<AllSessions />}></Route>
-        <Route path="/about-us" element={<AllSessions />}></Route>
+        {/* <Route path="/about-us" element={<AllSessions />}></Route> */}
         <Route path="/profile/:profileId" element={<Profile />}></Route>
       </Route>
       <Route path="/test" element={<Sessions />}></Route>

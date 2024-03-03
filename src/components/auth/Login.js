@@ -98,9 +98,7 @@ const Login = () => {
   } = formik;
   return (
     <>
-      <Link to="/">
-        <img src={logo} className="logo" alt="logo"></img>
-      </Link>
+      <img src={logo} className="logo" alt="logo"></img>
       <Box
         sx={{
           flex: "1 1 auto",
