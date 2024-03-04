@@ -13,7 +13,10 @@ const Sessions = () => {
   const { user } = useContext(AuthContext);
   const { loading, error, apiCall } = useApi();
   const [open, setOpen] = useState(false);
-  const [successDelete, setSuccessDelete] = useState(false);
+  const [selectedRow, setSelectedRow] = useState(false);
+  const [successDelete, setSuccessDelete] = useState(null);
+  const [successAdd, setSuccessAdd] = useState(true);
+  const [successEdit, setSuccessEdit] = useState(true);
   const [sessions, setSessions] = useState(null);
   useEffect(() => {
     const fetchSessions = async () => {
@@ -22,7 +25,8 @@ const Sessions = () => {
         method: "post",
         data: { id: user._id },
       });
-      setSessions(response.data);
+      setSessions(response.data); // open,
+      // type,
     };
     if (user) {
       fetchSessions();
@@ -38,11 +42,13 @@ const Sessions = () => {
       });
       setSessions(response.data);
     };
-    if (user && successDelete) {
+    if (user && (successDelete || successAdd || successEdit)) {
       fetchSessions();
       setSuccessDelete(false);
+      setSuccessAdd(false);
+      setSuccessEdit(false);
     }
-  }, [successDelete]);
+  }, [successDelete, successAdd, successEdit]);
   const [pageSize, setPageSize] = useState(5);
 
   const handleOpen = () => setOpen(true);
@@ -76,23 +82,20 @@ const Sessions = () => {
         field: "date",
         headerName: "Date",
         width: 200,
-        renderCell: (params) =>
-          moment(params.row.date).format("YYYY-MM-DD HH:MM:SS"),
+        renderCell: (params) => moment(params.row.date).format("YYYY-MM-DD"),
       },
       {
         field: "startTime",
         headerName: "Start Time",
         width: 200,
-        renderCell: (params) =>
-          moment(params.row.startTime).format("YYYY-MM-DD HH:MM:SS"),
+        renderCell: (params) => moment(params.row.startTime).format("HH:MM:SS"),
       },
 
       {
         field: "lastTime",
         headerName: "End Time",
         width: 200,
-        renderCell: (params) =>
-          moment(params.row.lastTime).format("YYYY-MM-DD HH:MM:SS"),
+        renderCell: (params) => moment(params.row.lastTime).format("HH:MM:SS"),
       },
       {
         field: "createdAt",
@@ -109,6 +112,10 @@ const Sessions = () => {
         renderCell: (params) => (
           <SessionsActions
             setSuccessDelete={setSuccessDelete}
+            setSelectedRow={setSelectedRow}
+            setOpen={setOpen}
+            open={open}
+            type="edit"
             {...{ params }}
           />
         ),
@@ -123,6 +130,7 @@ const Sessions = () => {
         height: 500,
         width: "70%",
         margin: "160px auto",
+        paddingBottom: "100px",
       }}
     >
       <Typography variant="h3" component="h3" sx={{ mt: 3, mb: 3 }}>
@@ -164,7 +172,14 @@ const Sessions = () => {
           />
         )
       )}
-      <SessionModel setOpen={setOpen} open={open} />
+      <SessionModel
+        setOpen={setOpen}
+        open={open}
+        setSuccessAdd={setSuccessAdd}
+        setSuccessEdit={setSuccessEdit}
+        selectedRow={selectedRow && selectedRow}
+        type={selectedRow ? "edit" : "add"}
+      />
     </Box>
   );
 };

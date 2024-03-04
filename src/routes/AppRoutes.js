@@ -29,6 +29,7 @@ const AppRoutes = () => {
         <Route path="/sessions" element={<AllSessions />}></Route>
         {/* <Route path="/about-us" element={<AllSessions />}></Route> */}
         <Route path="/profile/:profileId" element={<Profile />}></Route>
+        <Route path="/teacherSessions" element={<Sessions />}></Route>
       </Route>
       <Route path="/test" element={<Sessions />}></Route>
       <Route path="/teacher-request" element={<TeacherRequest />}></Route>

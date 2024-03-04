@@ -3,6 +3,7 @@
   max-width: 90%;
   margin: 0 auto;
   overflow: hidden;
+  padding-top: 35px;
 }
 .PathTitle {
   margin: 1em auto;
@@ -46,4 +47,9 @@
   cursor: pointer;
   z-index: 999;
   margin-right: 20px;
+}
+@media screen and (max-width: 600px) {
+  .PathTitle {
+    font-size: 1.5em;
+  }
 }

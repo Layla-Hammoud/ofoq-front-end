@@ -1,5 +1,6 @@
 import { NavItems } from "./NavBarItems";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 import style from "./NavBar.module.css";
 import logo from "../../assets/logo.svg";
 import { Link, NavLink } from "react-router-dom";
@@ -7,7 +8,10 @@ import { useLocation } from "react-router-dom";
 import { Button } from "@mui/material";
 import { studentNavItems } from "./NavBarItems";
 import { teacherNavItems } from "./NavBarItems";
+import MenuSimple from "../../components/DropdownList/DropdowList";
+
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
   const [open, setOpen] = useState(false);
   const bar1 = [style.bar1, open ? style.bar1active : ""].join(" ");
   const bar2 = [style.bar2, open ? style.bar2active : ""].join(" ");
@@ -73,6 +77,14 @@ const Navbar = () => {
             </span>
           </li>
         ))}
+
+        {!user && (
+          <span style={{ width: "auto" }} className={style.navlinks}>
+            <NavLink className={style.link} to="teacher-request">
+              Join as Teacher
+            </NavLink>
+          </span>
+        )}
         <li id="conditionalLi">
           <span className={style.navlinks}>
             <NavLink className={style.link} to="sign-up">
@@ -81,29 +93,35 @@ const Navbar = () => {
           </span>
         </li>
         <div className={style.navButtonContainer}>
-          <li>
-            <NavLink to="sign-up">
-              <Button
-                variant="contained"
-                sx={{
-                  height: "50px",
-                  width: "8rem",
-                  backgroundColor: "#0B7077",
-                  marginRight: "10px",
-                  color: "white",
-                  fontFamily: "Inter, sans-serif",
-                  boxShadow: "none",
-                  "&:hover": {
-                    backgroundColor: "#085b61",
-                    color: "#ffffff",
-                    boxShadow: "none",
-                  },
-                }}
-              >
-                SIGN UP
-              </Button>
-            </NavLink>
-          </li>
+          {!user ? (
+            <>
+              <li>
+                <NavLink to="sign-up">
+                  <Button
+                    variant="contained"
+                    sx={{
+                      height: "50px",
+                      width: "8rem",
+                      backgroundColor: "#0B7077",
+                      marginRight: "10px",
+                      color: "white",
+                      fontFamily: "Inter, sans-serif",
+                      boxShadow: "none",
+                      "&:hover": {
+                        backgroundColor: "#085b61",
+                        color: "#ffffff",
+                        boxShadow: "none",
+                      },
+                    }}
+                  >
+                    SIGN UP
+                  </Button>
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <MenuSimple />
+          )}
         </div>
       </ul>
     </nav>

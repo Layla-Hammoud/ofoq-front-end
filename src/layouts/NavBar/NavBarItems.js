@@ -19,11 +19,6 @@ export const NavItems = [
     url: "/about",
     cName: "navlinks",
   },
-  {
-    title: "Join as Teacher",
-    url: "/teacher-request",
-    cName: "navlinks",
-  },
 ];
 export const studentNavItems = [
   {

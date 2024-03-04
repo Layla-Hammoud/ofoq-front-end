@@ -81,9 +81,12 @@ const Footer = () => {
           </Link>
         </section>
         <section className={style.inputWrapper}>
-          <p>Stay up to date with the our platform updates</p>
+          <p style={{ fontWeight: "bold" }}>
+            Stay up to date with the our platform updates
+          </p>
           <div className={style.SearchboxWrap}>
             <input
+              className={style.inputFooter}
               type="text"
               placeholder="example@gmail.com"
               value={state.email}

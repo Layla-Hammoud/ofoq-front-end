@@ -2,6 +2,13 @@ import styles from "./Hero.module.css";
 import { Button } from "@mui/material";
 import HeroLine from "../../assets/HeroLine.png";
 const Hero = () => {
+  const handleScrollToPaths = () => {
+    const pathsSection = document.getElementById("paths");
+
+    if (pathsSection) {
+      pathsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <>
       <div className={styles.heroWrapper}>
@@ -11,7 +18,9 @@ const Hero = () => {
             <span>Learn</span> Without Limits:<span> Knowledge </span>Accessible
             to <span>Everyone</span>
           </h1>
+
           <Button
+            onClick={handleScrollToPaths}
             variant="contained"
             sx={{
               height: "50px",

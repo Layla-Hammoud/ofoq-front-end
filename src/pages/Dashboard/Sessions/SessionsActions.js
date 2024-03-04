@@ -3,7 +3,15 @@ import { Delete, Edit, Preview } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import useApi from "../../../hooks/useApi";
 import { toast } from "react-toastify";
-const RoomsActions = ({ params, setSuccessDelete }) => {
+import SessionModel from "../../../components/SessionModule/SessionModal";
+const RoomsActions = ({
+  params,
+  setSuccessDelete,
+  setSelectedRow,
+  setOpen,
+  // open,
+  type,
+}) => {
   const { apiCall } = useApi();
   const handleDeleteSession = async () => {
     try {
@@ -20,6 +28,10 @@ const RoomsActions = ({ params, setSuccessDelete }) => {
       console.log(error);
     }
   };
+  const hendelEdit = async () => {
+    setSelectedRow(params.row);
+    setOpen(true);
+  };
 
   return (
     <Box>
@@ -32,7 +44,9 @@ const RoomsActions = ({ params, setSuccessDelete }) => {
       </Tooltip>
       <Tooltip title="Edit this room">
         <IconButton
-        // onClick={() => {}}
+          onClick={() => {
+            hendelEdit();
+          }}
         >
           <Edit />
         </IconButton>
@@ -42,6 +56,15 @@ const RoomsActions = ({ params, setSuccessDelete }) => {
           <Delete />
         </IconButton>
       </Tooltip>
+      {/* {params.row._id && (
+        <SessionModel
+          setSuccessEdit={setSuccessEdit}
+          setOpen={setOpen}
+          open={open}
+          type={type}
+          rowData={params.row}
+        />
+      )} */}
     </Box>
   );
 };

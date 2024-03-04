@@ -90,7 +90,7 @@ const HomePath = () => {
 
   return (
     <>
-      <section className={style.PathSection}>
+      <section className={style.PathSection} id="paths">
         <h3 className={style.PathTitle}>Our Paths</h3>
         <p className={style.PathSubTitle}>
           Boost performance with our predefined paths

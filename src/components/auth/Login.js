@@ -60,8 +60,7 @@ const Login = () => {
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
         await axiosInstance.post("user/log-in", values);
-        toast.success("Logged In successfully");
-        await fetchUserData;
+        await fetchUserData();
         navigate("/");
         resetForm();
       } catch (error) {

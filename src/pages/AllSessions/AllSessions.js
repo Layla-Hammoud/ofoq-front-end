@@ -8,7 +8,9 @@ import EventCard from "../../components/EventCard/EventCard";
 
 const AllSessions = () => {
   const [events, setEvents] = useState(null);
-  const { loading, error, apiCall } = useApi();
+  const { apiCall } = useApi();
+  const [loading, setLoading] = useState(false);
+  const [pathLoading, setPathLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [totalItems, setTotalItems] = useState(0);
@@ -16,6 +18,7 @@ const AllSessions = () => {
   const [paths, setPaths] = useState(null);
   useEffect(() => {
     const fetchSessions = async () => {
+      setLoading(true);
       const response = await apiCall({
         url: "event/get-all",
         method: "post",
@@ -23,24 +26,31 @@ const AllSessions = () => {
       });
       setEvents(response.data);
       setTotalItems(response.totalItems);
+      setLoading(false);
     };
+
     fetchSessions();
   }, [filter, page, pageSize]);
 
   useEffect(() => {
     const fetchSessions = async () => {
       console.log(filter);
+      setLoading(true);
       const response = await apiCall({
         url: "event/get-all",
         method: "post",
         data: { domainId: filter },
       });
       setEvents(response.data);
+      setLoading(false);
     };
     const fetchPaths = async () => {
+      setPathLoading(true);
       const response = await apiCall({ url: "domain/get-all", method: "get" });
       setPaths(response.data);
+      setPathLoading(false);
     };
+
     fetchPaths();
     fetchSessions();
   }, []);
@@ -48,12 +58,12 @@ const AllSessions = () => {
   return (
     <>
       <h1 className={styles.pageTitle}>Upcoming Sessions</h1>
-      {loading ? (
+      {loading || pathLoading ? (
         <Loader heigth={"50vw"} />
       ) : (
         <section className={styles.EventContainer}>
           <section className={styles.EventCardWrapper}>
-            {events && events.length > 0 ? (
+            {events && events.length ? (
               events.map((event) => (
                 <EventCard
                   key={event._id}

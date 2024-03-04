@@ -20,18 +20,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
   useEffect(() => {
-    if(!user && user === null){
-    fetchUserData();
+    if (!user && user === null) {
+      fetchUserData();
+    } else {
+      console.log("logged in");
     }
-   else{
-    console.log("logged in")
-   }
-},[user]);
+  }, [user]);
 
   return (
-    <AuthContext.Provider
-      value={{ user, setUser, checkUser, fetchUserData  }}
-    >
+    <AuthContext.Provider value={{ user, setUser, checkUser, fetchUserData }}>
       {children}
     </AuthContext.Provider>
   );

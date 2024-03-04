@@ -10,7 +10,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import dataImage from "../../assets/data.svg";
 import text from "../../assets/text.svg";
-import video from "../../assets/video.svg";
+import video from "../../assets/videicon.svg";
 const Chapters = () => {
   const { loading, error, apiCall } = useApi();
   const [course, setCourse] = useState(null);
@@ -59,7 +59,7 @@ const Chapters = () => {
                     variant="h6"
                     sx={{
                       fontWeight: "bold",
-                      '@media (max-width: 600px)': {
+                      "@media (max-width: 600px)": {
                         paddingTop: "10px",
                         fontSize: "17px",
                       },
@@ -77,22 +77,22 @@ const Chapters = () => {
                     variant="body1"
                     sx={{
                       fontWeight: "600",
-                      paddingBottom:"15px",
-                      color:"#696984"
+                      paddingBottom: "15px",
+                      color: "#696984",
                     }}
                   >
                     {chapter.description}
                   </Typography>
 
-                  {chapter.resources.map((resource,index) => (
+                  {chapter.resources.map((resource, index) => (
                     <>
                       <Typography
-                      key={index}
+                        key={index}
                         variant="body2"
                         sx={{
                           paddingTop: "15px",
                           fontWeight: "700",
-                          '@media (max-width: 600px)': {
+                          "@media (max-width: 600px)": {
                             paddingTop: "10px",
                             fontSize: "14px",
                           },
