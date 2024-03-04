@@ -61,11 +61,9 @@ const SingleSession = () => {
         ? [...event.studentId, user._id]
         : event.studentId.filter((userId) => userId !== user._id);
 
-      const response = await axiosInstance.patch("event/update", {
+      const response = await axiosInstance.patch("event/add-student", {
         id: eventId,
-        studentId: updatedIsGoing
-          ? [...event.studentId, user._id]
-          : event.studentId.filter((userId) => userId !== user._id),
+        studentId: user._id,
       });
 
       // Update the local state based on the response
@@ -166,7 +164,7 @@ const SingleSession = () => {
               </div>
             </Link>
 
-            <div className={style.IconWrapper}>
+            {/* <div className={style.IconWrapper}>
               {event.platformType === "Zoom" && (
                 <a href={event.link} target="_blank" rel="noopener noreferrer">
                   <img src={zoom} className={style.icon} alt="Zoom" />
@@ -195,7 +193,7 @@ const SingleSession = () => {
                   Session Link
                 </a>
               )}
-            </div>
+            </div> */}
           </section>
           <p className={style.description}>{event.description}</p>
           <h3 className={style.otherEventTitle}>Other Available Sessions</h3>

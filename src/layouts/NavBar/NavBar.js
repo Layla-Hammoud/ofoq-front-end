@@ -8,10 +8,21 @@ import { useLocation } from "react-router-dom";
 import { Button } from "@mui/material";
 import { studentNavItems } from "./NavBarItems";
 import { teacherNavItems } from "./NavBarItems";
+import { useNavigate } from "react-router-dom";
 import MenuSimple from "../../components/DropdownList/DropdowList";
-
+import useApi from "../../hooks/useApi";
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(AuthContext);
+  const { apiCall } = useApi();
+  const handlelogOut = async () => {
+    const response = await apiCall({
+      url: "user/log-out",
+      method: "post",
+    });
+    setUser(null);
+    navigate("/");
+  };
   const [open, setOpen] = useState(false);
   const bar1 = [style.bar1, open ? style.bar1active : ""].join(" ");
   const bar2 = [style.bar2, open ? style.bar2active : ""].join(" ");
@@ -33,6 +44,22 @@ const Navbar = () => {
     };
   }, []);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+  console.log(windowWidth);
+  useEffect(() => {
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
@@ -41,16 +68,16 @@ const Navbar = () => {
     setOpen(!open);
   };
 
-  const getNavItemsBasedOnRole = (role) => {
-    switch (role) {
-      case "student":
-        return studentNavItems;
-      case "teacher":
-        return teacherNavItems;
-      default:
-        return NavItems;
-    }
-  };
+  // const getNavItemsBasedOnRole = (role) => {
+  //   switch (role) {
+  //     case "student":
+  //       return studentNavItems;
+  //     case "teacher":
+  //       return teacherNavItems;
+  //     default:
+  //       return NavItems;
+  //   }
+  // };
 
   return (
     <nav className={style.NavbarItems}>
@@ -85,13 +112,40 @@ const Navbar = () => {
             </NavLink>
           </span>
         )}
-        <li id="conditionalLi">
-          <span className={style.navlinks}>
-            <NavLink className={style.link} to="sign-up">
-              sign up
-            </NavLink>
-          </span>
-        </li>
+        {!user && windowWidth < 1222 && (
+          <li id="conditionalLi">
+            <span className={style.navlinks}>
+              <NavLink className={style.link} to="sign-up">
+                sign up
+              </NavLink>
+            </span>
+          </li>
+        )}
+        {user && user.role === "student" && (
+          <li id="conditionalLi">
+            <span className={style.navlinks}>
+              <NavLink className={style.link} to="courses">
+                My Courses
+              </NavLink>
+            </span>
+          </li>
+        )}
+        {user && user.role === "teacher" && (
+          <li id="conditionalLi">
+            <span className={style.navlinks}>
+              <NavLink className={style.link} to="teacherSessions">
+                My Sessions
+              </NavLink>
+            </span>
+          </li>
+        )}
+        {user && windowWidth < 1222 && (
+          <li id="conditionalLi">
+            <span onClick={handlelogOut} className={style.navlinks}>
+              Log Out
+            </span>
+          </li>
+        )}
         <div className={style.navButtonContainer}>
           {!user ? (
             <>

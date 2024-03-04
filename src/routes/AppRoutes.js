@@ -13,6 +13,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import SingleSession from "../pages/SingleSession/SingleSession";
 import Path from "../pages/Path/Path";
 import Sessions from "../pages/Dashboard/Sessions/Sessions";
+import CancelParticipation from "../pages/CancelParticipation/CancelParticipation";
 // import GridPromotion from "../pages/Dashboard/pomo/promo";
 import HomePath from "../components/HomePath/HomePath";
 import Profile from "../pages/profile/Profile";
@@ -30,6 +31,10 @@ const AppRoutes = () => {
         {/* <Route path="/about-us" element={<AllSessions />}></Route> */}
         <Route path="/profile/:profileId" element={<Profile />}></Route>
         <Route path="/teacherSessions" element={<Sessions />}></Route>
+        <Route
+          path="/session/cancel-participation"
+          element={<CancelParticipation />}
+        ></Route>
       </Route>
       <Route path="/test" element={<Sessions />}></Route>
       <Route path="/teacher-request" element={<TeacherRequest />}></Route>

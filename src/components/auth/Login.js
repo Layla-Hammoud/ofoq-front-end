@@ -59,7 +59,11 @@ const Login = () => {
     validationSchema: validationSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-        await axiosInstance.post("user/log-in", values);
+        const response = await axiosInstance.post("user/log-in", values);
+        if (response.success === false) {
+          toast.error(response.message);
+          return;
+        }
         await fetchUserData();
         navigate("/");
         resetForm();
