@@ -9,6 +9,9 @@ import Loader from "../../components/Loader/Loader";
 import eventDateIcon from "../../assets/date.svg";
 import personIcon from "../../assets/person.png";
 import moment from "moment";
+import Slide from "@mui/material/Slide";
+import Alert from "@mui/material/Alert";
+import Snackbar from "@mui/material/Snackbar";
 import zoom from "../../assets/zoom.svg";
 import google from "../../assets/google.svg";
 import team from "../../assets/microsoft.svg";
@@ -16,7 +19,15 @@ import link from "../../assets/link.svg";
 import Card from "../../components/Card/Card";
 import axiosInstance from "../../utils/axios";
 import { toast } from "react-toastify";
+function SlideTransition(props) {
+  return <Slide {...props} direction="up" />;
+}
 const SingleSession = () => {
+  const [state, setState] = useState({
+    open: false,
+    errorOpen: false,
+    Transition: Slide,
+  });
   const { eventId } = useParams();
   const { user } = useContext(AuthContext);
   const [event, setEvent] = useState(null);
@@ -48,6 +59,13 @@ const SingleSession = () => {
     fetchSessions();
   }, [eventId]);
 
+  const handleClose = () => {
+    setState({
+      ...state,
+      open: false,
+    });
+  };
+
   const handleGoing = async () => {
     try {
       if (!user) {
@@ -64,6 +82,10 @@ const SingleSession = () => {
       const response = await axiosInstance.patch("event/add-student", {
         id: eventId,
         studentId: user._id,
+      });
+      setState({
+        ...state,
+        open: true,
       });
 
       // Update the local state based on the response
@@ -103,7 +125,7 @@ const SingleSession = () => {
         <section className={style.textWrapper}>
           <section className={style.titleAndButtonContainer}>
             <h1 className={style.title}>{event.title}</h1>
-            {!isGoing && (
+            {user && !isGoing && (
               <LoadingButton
                 fullWidth
                 size="large"
@@ -212,6 +234,18 @@ const SingleSession = () => {
               : ""}
           </section>
         </section>
+        <Snackbar
+          open={state.open}
+          onClose={handleClose}
+          TransitionComponent={state.Transition}
+          key={state.Transition.name}
+          autoHideDuration={2000}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Alert onClose={handleClose} severity="success">
+            An email has been to you with the link of the Session
+          </Alert>
+        </Snackbar>
       </div>
     )
   );

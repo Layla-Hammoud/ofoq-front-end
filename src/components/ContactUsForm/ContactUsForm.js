@@ -1,6 +1,7 @@
 import { useState } from "react";
 import FormStyle from "./ContactUsForm.module.css";
 import { toast } from "react-toastify";
+import axiosInstance from "../../utils/axios";
 const ContactUsForm = () => {
   const [isLoading, setisLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -29,25 +30,22 @@ const ContactUsForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Form submitted:", formData);
-    // setisLoading(true)
-    // emailjs.sendForm(`${process.env.REACT_APP_SERVICE_ID}, ${process.env.REACT_APP_TEMPLATEFORCONTACTUS_ID}, ${e.target}, ${process.env.REACT_APP_PUBLIC_KEY}`)
 
-    //   .then((result) => {
-    //     if (result.status) {
-    //       resetForm()
-    //       console.log(result);
-    //       setisLoading(false)
-    //       toast.success('Email Sent Successfully')
-    //     }
-    //   }, (error) => {
-    //     console.log(error);
-    //     setisLoading(false);
-    //     toast.error("An error occurd, email wasn't sent");
-
-    //   });
+    try {
+      await axiosInstance.post("miscellaneous/send-contact-form", formData);
+      toast.success("Message sent successfully");
+      resetForm();
+    } catch (error) {
+      if (error) {
+        if (error.response && error.response.data) {
+          toast.error(error.response.data.error);
+        } else {
+          toast.error("Something went wrong");
+        }
+      }
+    }
   };
 
   return (

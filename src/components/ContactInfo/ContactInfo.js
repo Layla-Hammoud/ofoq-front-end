@@ -13,7 +13,7 @@ const ContactInfo = () => {
           <div className={style.iconsWrapper}>
             <div className={style.icon}>
               <a
-                href="https://www.facebook.com/equilibreka?mibextid=ZbWKwL"
+                href="https://www.facebook.com/profile.php?id=100007494499241"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -22,7 +22,7 @@ const ContactInfo = () => {
             </div>
             <div className={style.icon}>
               <a
-                href="https://www.instagram.com/equilibre.lb?igsh=MjJ3dWlweXk2N3Z4"
+                href="https://www.instagram.com/layla_hammoud_1/"
                 rel="noreferrer"
                 target="_blank"
               >
@@ -33,11 +33,11 @@ const ContactInfo = () => {
         </article>
         <article className={style.phoneContainer}>
           <img src={PhoneIcon} alt="phone icon"></img>
-          <p className={style.number}>+961 70820265</p>
+          <p className={style.number}>+961 81449032</p>
         </article>
         <address className={style.locationContainer}>
           <img src={locationIcon} alt="location icon"></img>
-          <p className={style.location}>Lebanon, Tripoli, Khan Al Saboun</p>
+          <p className={style.location}>Lebanon, Tripoli</p>
         </address>
       </section>
     </>

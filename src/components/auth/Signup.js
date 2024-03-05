@@ -90,7 +90,7 @@ const Signup = () => {
             toast.error(passwordError);
           }
         } else {
-          toast.error(error.message);
+          toast.error(error.response.data.error);
         }
       } finally {
         setSubmitting(false);

@@ -49,7 +49,6 @@ const Navbar = () => {
   const handleResize = () => {
     setWindowWidth(window.innerWidth);
   };
-  console.log(windowWidth);
   useEffect(() => {
     // Add event listener for window resize
     window.addEventListener("resize", handleResize);
@@ -121,7 +120,7 @@ const Navbar = () => {
             </span>
           </li>
         )}
-        {user && user.role === "student" && (
+        {user && user.role === "student" && windowWidth < 1222 && (
           <li id="conditionalLi">
             <span className={style.navlinks}>
               <NavLink className={style.link} to="courses">
@@ -130,7 +129,7 @@ const Navbar = () => {
             </span>
           </li>
         )}
-        {user && user.role === "teacher" && (
+        {user && user.role === "teacher" && windowWidth < 1222 && (
           <li id="conditionalLi">
             <span className={style.navlinks}>
               <NavLink className={style.link} to="teacherSessions">

@@ -70,8 +70,8 @@ const Footer = () => {
         </section>
         <section className={style.linksWrapper}>
           <h6>links</h6>
-          <Link to="about-us">
-            <p>About us</p>
+          <Link to="/">
+            <p>Home</p>
           </Link>
           <Link to="contact-us">
             <p>Contact Us</p>

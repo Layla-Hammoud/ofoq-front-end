@@ -92,9 +92,9 @@ const AllSessions = () => {
               size="large"
               sx={{
                 mt: 1,
-                width: "150px",
+                width: "220px",
                 mr: "10px",
-                height: "50px",
+                height: "70px",
                 border: "1px solid #0B7077",
                 borderRadius: "10px",
                 boxShadow: "none",
@@ -120,9 +120,9 @@ const AllSessions = () => {
                   size="large"
                   sx={{
                     mt: 1,
-                    width: "150px",
+                    width: "220px",
                     mr: "10px",
-                    height: "50px",
+                    height: "70px",
                     border: "1px solid #0B7077",
                     borderRadius: "10px",
                     boxShadow: "none",

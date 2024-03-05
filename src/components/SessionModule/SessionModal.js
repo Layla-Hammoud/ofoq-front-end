@@ -179,8 +179,7 @@ const SessionModel = ({
       toast.success(response.message);
       // Handle success cases or additional logic
     } catch (error) {
-      const errors = error.response.data;
-      toast.error(errors);
+      toast.error(error);
       setOpen(false);
     }
 

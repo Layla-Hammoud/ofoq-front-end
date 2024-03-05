@@ -9,7 +9,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import dataImage from "../../assets/data.svg";
-import text from "../../assets/text.svg";
+import text from "../../assets/data.svg";
 import video from "../../assets/videicon.svg";
 const Chapters = () => {
   const { loading, error, apiCall } = useApi();
@@ -66,7 +66,7 @@ const Chapters = () => {
                     }}
                     key={index}
                   >
-                    chapter{chapter.number}: {chapter.title}{" "}
+                    chapter {chapter.number}: {chapter.title}{" "}
                     <span key={index} className={style.resourceNumber}>
                       ({chapter.resources.length} Resources)
                     </span>

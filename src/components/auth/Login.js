@@ -68,23 +68,22 @@ const Login = () => {
         navigate("/");
         resetForm();
       } catch (error) {
-        if (
-          error.response &&
-          error.response.data &&
-          error.response.data.errors
-        ) {
+        if (error.response && error.response.data) {
           const { errors } = error.response.data;
 
-          if (errors.email) {
-            const emailError = errors.email;
-            toast.error(emailError);
+          if (errors) {
+            if (errors.email) {
+              const emailError = errors.email;
+              toast.error(emailError);
+            }
+
+            if (errors.password) {
+              const passwordError = errors.password;
+              toast.error(passwordError);
+            }
+          } else {
+            toast.error(error.response.data.message);
           }
-          if (errors.password) {
-            const passwordError = errors.password;
-            toast.error(passwordError);
-          }
-        } else {
-          toast.error(error.message);
         }
       } finally {
         setSubmitting(false);
