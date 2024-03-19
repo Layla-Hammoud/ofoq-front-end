@@ -66,7 +66,7 @@ const Footer = () => {
           <img src={logo} alt="logo" />
           <p>Your exam success starts here. Unlock your potential with us!</p>
           <p>Email: laylahammoud63@gmail.com</p>
-          <p>+961 00 000 000</p>
+          <p>+961 81 449 032</p>
         </section>
         <section className={style.linksWrapper}>
           <h6>links</h6>
