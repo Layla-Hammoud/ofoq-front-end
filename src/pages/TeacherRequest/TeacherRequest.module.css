@@ -1,5 +1,6 @@
 .container {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   width: 100vw;
   background-color: var(--secondary-color);
   display: flex;
@@ -25,7 +26,7 @@
   opacity: 0.5;
 }
 
-.textWrapper::after {
+/* .textWrapper::after {
   width: 250px;
   height: 250px;
   bottom: 90px;
@@ -37,7 +38,7 @@
   height: 200px;
   bottom: 200px;
   right: 170px;
-}
+} */
 
 .textWrapper h1 {
   margin: 2.1rem 0 0 0;
@@ -65,6 +66,8 @@
   background-color: white;
   justify-content: flex-start;
   gap: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   position: relative;
 }
 .number {
@@ -103,7 +106,7 @@
   height: 50px;
   gap: 10px;
 }
-@media (max-width: 1000px) {
+/* @media (max-width: 1000px) {
   .textWrapper::after {
     width: 150px;
     height: 150px;
@@ -114,7 +117,7 @@
     bottom: 170px;
     right: 150px;
   }
-}
+} */
 @media (max-width: 800px) {
   .container {
     width: 100%;
@@ -123,12 +126,12 @@
     flex-direction: column;
     justify-content: flex-start;
   }
-  .textWrapper::after {
+  /* .textWrapper::after {
     display: none;
   }
   .textWrapper::before {
     display: none;
-  }
+  } */
   .textWrapper {
     align-self: center;
     width: 65%;
@@ -148,7 +151,16 @@
   }
   .formWrapper {
     margin-bottom: 3.8rem;
-    min-height: 750px;
+    min-height: 700px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .buttonWrapper {
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
   }
 }
 

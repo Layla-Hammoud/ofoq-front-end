@@ -129,7 +129,7 @@ const Signup = () => {
           sx={{
             maxWidth: 550,
             px: 3,
-            py: "100px",
+            py: "25px",
             width: "100%",
           }}
         >

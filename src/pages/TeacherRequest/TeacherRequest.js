@@ -261,7 +261,7 @@ const TeacherRequest = () => {
                     label="Biography"
                     name="bio"
                     multiline
-                    rows={4}
+                    rows={2}
                     value={values.bio}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -308,8 +308,6 @@ const TeacherRequest = () => {
                       accept="image/*"
                     />
                   </Button>
-                </Stack>
-                <section className={style.nextWrapper}>
                   <Button
                     onClick={next}
                     fullWidth
@@ -318,8 +316,8 @@ const TeacherRequest = () => {
                       marginLeft: "auto",
                       width: "200px",
                       mt: 3,
-                      position: "absolute",
-                      bottom: "50px",
+                      // position: "absolute",
+                      // bottom: "50px",
                       height: "50px",
                       borderRadius: "10px",
                       fontFamily: "Inter",
@@ -327,12 +325,18 @@ const TeacherRequest = () => {
                       "&:hover": {
                         backgroundColor: "#085b61",
                       },
+                      "@media(max-width:600px)": {
+                        width: "100%",
+                      },
                     }}
                     variant="contained"
                   >
                     Next
                   </Button>
-                </section>
+                </Stack>
+                {/* <section className={style.nextWrapper}>
+                 
+                </section> */}
               </>
             )}
             {currentStep === 2 && (
@@ -462,10 +466,10 @@ const TeacherRequest = () => {
                       onClick={previous}
                       size="large"
                       sx={{
-                        position: "absolute",
-                        bottom: "50px",
-                        left: "50px",
-                        mt: 16.2,
+                        // position: "absolute",
+                        // bottom: "50px",
+                        // left: "50px",
+                        // mt: 16.2,
                         width: "200px",
                         height: "50px",
                         borderRadius: "10px",
@@ -475,9 +479,7 @@ const TeacherRequest = () => {
                           backgroundColor: "#085b61",
                         },
                         "@media(max-width:600px)": {
-                          bottom: "150px",
-                          width: "80%",
-                          left: "25px",
+                          width: "100%",
                         },
                       }}
                       variant="contained"
@@ -487,10 +489,10 @@ const TeacherRequest = () => {
                     <LoadingButton
                       size="large"
                       sx={{
-                        position: "absolute",
-                        bottom: "50px",
-                        right: "50px",
-                        mt: 16.2,
+                        // position: "absolute",
+                        // bottom: "50px",
+                        // right: "50px",
+                        // mt: 16.2,
                         height: "50px",
                         width: "200px",
                         borderRadius: "10px",
@@ -500,8 +502,7 @@ const TeacherRequest = () => {
                           backgroundColor: loading ? "#808080" : "#085b61",
                         },
                         "@media(max-width:600px)": {
-                          width: "80%",
-                          left: "25px",
+                          width: "100%",
                         },
                       }}
                       type="submit"

@@ -1,7 +1,6 @@
 import styles from './SuccessModal.module.css'
 
 const SuccessModel = ({isOpen, setIsopen, title,description }) => {
-    console.log(isOpen)
   return (
     <>
       {isOpen && (
